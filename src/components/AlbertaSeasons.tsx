@@ -71,7 +71,7 @@ const albertaMonths = [
     temp: '22°C',
     description: 'Honey harvest time! Beekeepers use bee blowers to clear supers',
     activity: 'Listen for: The roar of bee blowers in Alberta apiaries',
-    albertaFact: 'A strong Alberta hive can produce 25-35kg of honey in a good year',
+    albertaFact: 'A strong Alberta hive can store 50kg+ of surplus honey for harvest!',
     icon: '🍯',
     color: 'bg-amber-500',
     textColor: 'text-black'

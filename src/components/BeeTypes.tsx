@@ -19,7 +19,7 @@ const beeTypes = [
       'She is the largest bee in the hive.',
       'Only one Queen lives in each hive.'
     ],
-    albertaFact: 'Alberta queens often bred for winter hardiness - they start laying earlier in spring to maximize short summer!'
+    albertaFact: 'Queen bees lay up to 2,000 eggs per day - more than their own body weight!'
   },
   {
     role: 'THE WORKERS',
@@ -33,7 +33,7 @@ const beeTypes = [
       'They find the best Alberta flowers for nectar.',
       'A hive can have 50,000 workers!'
     ],
-    albertaFact: 'Alberta workers may visit 5,000+ flowers daily during canola bloom - that\'s like visiting every store in West Edmonton Mall!'
+    albertaFact: 'Worker bees change jobs as they age - from nurse to builder to forager in just 6 weeks!'
   },
   {
     role: 'THE DRONES',

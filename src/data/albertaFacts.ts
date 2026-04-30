@@ -87,7 +87,7 @@ export const albertaHoneyMath = [
   { fact: 'Alberta 300,000 hives produce 18 million kg honey yearly' },
   { fact: 'Enough honey to fill 100 Olympic swimming pools!' },
   { fact: 'One colony pollinates $300+ in Alberta canola seed value' },
-  { fact: 'One strong hive can produce 25-35 kg of honey in a good year' },
+  { fact: 'Worker bees fly up to 80 km per day searching for nectar' },
   { fact: 'Bees visit 50,000+ flowers to make 1 kg of honey' },
   { fact: 'Alberta produces 40% of Canada honey - number one in the country!' }
 ];
@@ -103,11 +103,11 @@ export const albertaWinterTips = [
 export const albertaBeeTypes = [
   {
     role: 'THE QUEEN',
-    albertaFact: 'Alberta queens often bred for winter hardiness - they start laying earlier in spring to maximize short summer'
+    albertaFact: 'A single queen can lay 2,000 eggs per day at peak season - more than her own body weight!'
   },
   {
     role: 'THE WORKERS',
-    albertaFact: 'Alberta workers may visit 5,000+ flowers daily during canola bloom - like visiting every store in a mall!'
+    albertaFact: 'Worker bees change jobs as they age - from nurse to builder to forager in just 6 weeks!'
   },
   {
     role: 'THE DRONES',

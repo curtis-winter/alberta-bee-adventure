@@ -1,17 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useSpring } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useSpring } from 'motion/react';
 import { 
   Bug, 
   Home as HomeIcon, 
   Flower2, 
   Snowflake, 
-  ThermometerSun, 
   Info,
   Users,
   Map,
-  ChevronRight,
-  Play,
-  RotateCcw
+  ChevronRight
 } from 'lucide-react';
 import Home from './components/Home';
 import BeeLifecycle from './components/BeeLifecycle';
@@ -197,25 +194,4 @@ export default function App() {
   );
 }
 
-function FloatingBee({ delay, x, y }: { delay: number; x: string; y: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ 
-        opacity: [0.1, 0.3, 0.1],
-        y: [0, -20, 0],
-        rotate: [0, 10, -10, 0]
-      }}
-      transition={{ 
-        duration: 10, 
-        repeat: Infinity, 
-        delay,
-        ease: "easeInOut" 
-      }}
-      className="absolute text-yellow-500/20"
-      style={{ left: x, top: y }}
-    >
-      <Bug size={64} />
-    </motion.div>
-  );
-}
+

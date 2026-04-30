@@ -6,21 +6,17 @@ interface HomeProps {
   onStart: () => void;
 }
 
+interface FeatureCardProps {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  desc: string;
+  color: string;
+  borderColor: string;
+}
+
 export default function Home({ onStart }: HomeProps) {
   return (
-    <div className="relative isolate min-h-screen">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1587334274328-64186a80aeee?auto=format&fit=crop&q=80&w=2000" 
-          className="w-full h-full object-cover grayscale opacity-10" 
-          alt="Beekeeping"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-sky-50 mix-blend-multiply" />
-      </div>
-
-      {/* Hero Section */}
+    <div className="relative isolate min-h-screen bg-gradient-to-br from-sky-100 to-amber-50">
       <div className="relative min-h-[calc(100vh-10rem)] flex flex-col items-center justify-center px-6 overflow-hidden z-10">
         
         <motion.div 
@@ -89,7 +85,7 @@ export default function Home({ onStart }: HomeProps) {
   );
 }
 
-function FeatureCard({ icon: Icon, title, desc, color, borderColor }: any) {
+function FeatureCard({ icon: Icon, title, desc, color, borderColor }: FeatureCardProps) {
   return (
     <motion.div 
       whileHover={{ scale: 1.02 }}

@@ -48,18 +48,48 @@ export const albertaNectarSources = [
     emoji: '🌿',
     color: 'bg-pink-500',
     textColor: 'text-white'
+  },
+  {
+    name: 'Goldenrod',
+    bloomPeriod: 'August-September',
+    honeyColor: 'Dark amber, strong flavor',
+    albertaFact: 'Late summer nectar source - golden fields in August',
+    tip: 'Late summer super-food for bees preparing for winter',
+    emoji: '🌾',
+    color: 'bg-yellow-500',
+    textColor: 'text-black'
+  },
+  {
+    name: 'Dandelion',
+    bloomPeriod: 'April-May',
+    honeyColor: 'Extra light amber',
+    albertaFact: 'Critical early spring food - first feast after long winter!',
+    tip: 'The FIRST flowers bees visit in spring - bright yellow lawns',
+    emoji: '🌼',
+    color: 'bg-yellow-300',
+    textColor: 'text-black'
+  },
+  {
+    name: 'Willow',
+    bloomPeriod: 'April-May',
+    honeyColor: 'Light with minty notes',
+    albertaFact: 'Essential early pollen source - fuzzy catkins along rivers',
+    tip: 'Fuzzy catkins that bloom before leaves appear',
+    emoji: '🌳',
+    color: 'bg-green-400',
+    textColor: 'text-white'
   }
 ];
 
 export const albertaHoneyMath = [
   { fact: 'One Alberta honeybee makes 1/12 tsp of honey in her lifetime' },
-  { fact: 'Bees travel 90,000 km to make 1kg of honey - that's 2x around Earth!' },
-  { fact: 'Alberta's 280,000 colonies produce 18 million kg honey yearly' },
-  { fact: 'That's enough honey to fill 100 Olympic swimming pools!' },
+  { fact: 'Bees travel 90,000 km to make 1 kg of honey - twice around Earth!' },
+  { fact: 'Alberta 300,000 hives produce 18 million kg honey yearly' },
+  { fact: 'Enough honey to fill 100 Olympic swimming pools!' },
   { fact: 'One colony pollinates $300+ in Alberta canola seed value' },
-  { fact: 'One strong hive can produce 25-35kg of honey in a good year' },
-  { fact: 'Bees visit 50,000+ flowers to make 1kg of honey' },
-  { fact: 'Alberta produces 40% of Canada's honey - #1 in the country!' }
+  { fact: 'One strong hive can produce 25-35 kg of honey in a good year' },
+  { fact: 'Bees visit 50,000+ flowers to make 1 kg of honey' },
+  { fact: 'Alberta produces 40% of Canada honey - number one in the country!' }
 ];
 
 export const albertaWinterTips = [
@@ -67,7 +97,7 @@ export const albertaWinterTips = [
   { practice: 'Ventilation', description: 'Upper entrances prevent moisture buildup - critical in our dry cold' },
   { practice: 'Emergency Feeding', description: 'Sugar cakes placed above cluster - bees access them without breaking cluster' },
   { practice: 'Windbreaks', description: 'Snow fences or straw bales around apiary - reduces wind chill by 50%' },
-  { practice: 'Spring Check', description: 'When willows bloom (usually late April), it\'s time for first thorough inspection' }
+  { practice: 'Spring Check', description: 'When willows bloom (usually late April), it time for first thorough inspection' }
 ];
 
 export const albertaBeeTypes = [
@@ -77,10 +107,10 @@ export const albertaBeeTypes = [
   },
   {
     role: 'THE WORKERS',
-    albertaFact: 'Alberta workers may visit 5,000+ flowers daily during canola bloom - that\'s like visiting every store in a mall!'
+    albertaFact: 'Alberta workers may visit 5,000+ flowers daily during canola bloom - like visiting every store in a mall!'
   },
   {
     role: 'THE DRONES',
-    albertaFact: 'Alberta drones are larger to generate more heat - crucial for keeping hives warm during -30°C winters'
+    albertaFact: 'Alberta drones are larger to generate more heat - crucial for keeping hives warm during -30C winters!'
   }
 ];

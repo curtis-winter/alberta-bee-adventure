@@ -14,16 +14,18 @@ const beekeepers = [
     story: 'I started beekeeping when my kids were in grade 3. Now they help me check hives every spring!',
     tip: 'In central Alberta, I always check my hives by May 1st - that\'s when winter bees start dying off and spring bees take over.',
     funFact: 'My hives produced 120lbs of honey last year - enough for 960 jars!',
-    color: 'bg-amber-400'
+    color: 'bg-amber-400',
+    textColor: 'text-black'
   },
   {
     name: 'Mike from Lethbridge',
     years: '8 years',
     image: '/images/beekeepers/mike.jpg',
     story: 'I keep bees in the coulee near the Oldman River. The microclimate there is perfect for early spring buildup!',
-    tip: 'Southern Alberta beekeepers can start inspections 2 weeks earlier than Edmonton - we get chinoks!',
+    tip: 'Southern Alberta beekeepers can start inspections 2 weeks earlier than Edmonton - we get chinooks!',
     funFact: 'My bees pollinate $50,000 worth of canola and alfalfa seed crops each year!',
-    color: 'bg-rose-400'
+    color: 'bg-rose-400',
+    textColor: 'text-white'
   },
   {
     name: 'Chen from Edmonton',
@@ -32,7 +34,8 @@ const beekeepers = [
     story: 'I started with one hive on my garage roof in the city. Now I have 15 hives across 3 community gardens!',
     tip: 'Urban beekeepers need to register with the city and keep hives 3m from property lines.',
     funFact: 'City bees often produce more honey than rural ones - they have 200+ different flowers within 1km!',
-    color: 'bg-sky-400'
+    color: 'bg-sky-400',
+    textColor: 'text-white'
   },
   {
     name: 'Priya from Peace River',
@@ -41,7 +44,8 @@ const beekeepers = [
     story: 'Up north, we have the shortest season but the sweetest clover honey. Our days are long in summer!',
     tip: 'Peace River beekeepers wrap hives by September 15th - winter comes fast in the north!',
     funFact: 'Peace River clover honey wins national awards for its mild, floral flavor!',
-    color: 'bg-emerald-400'
+    color: 'bg-emerald-400',
+    textColor: 'text-white'
   }
 ];
 
@@ -73,7 +77,7 @@ export default function AlbertaBeekeeperProfiles({ onNext }: AlbertaBeekeeperPro
         initial={{ x: direction * 300, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`brutalist-card rounded-[3rem] overflow-hidden ${keeper.color} text-white`}
+        className={`brutalist-card rounded-[3rem] overflow-hidden ${keeper.color} ${keeper.textColor || 'text-white'}`}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Beekeeper Image */}

@@ -76,14 +76,22 @@ export default function AlbertaStats({ onNext }: AlbertaStatsProps) {
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: idx * 0.1 }}
-                className={`p-6 border-4 border-black rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${source.color} text-white`}
+                className={`p-6 border-4 border-black rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${source.color} ${source.textColor || 'text-white'}`}
               >
                 <div className="flex items-center gap-4">
                   <div className="text-3xl">{source.emoji}</div>
                   <div>
                     <h4 className="text-xl font-black uppercase tracking-tighter">{source.name}</h4>
-                    <p className="font-bold text-sm opacity-90">{source.bloomPeriod} • {source.honeyColor}</p>
+                    <p className="text-sm font-bold opacity-80">{source.bloomPeriod} • {source.honeyColor}</p>
                   </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
                 </div>
               </motion.div>
             ))}

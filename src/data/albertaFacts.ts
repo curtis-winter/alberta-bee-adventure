@@ -6,7 +6,8 @@ export const albertaNectarSources = [
     albertaFact: 'Primary honey crop - worth $1.2B in pollination services',
     tip: 'Bright yellow fields across central Alberta!',
     emoji: '🌼',
-    color: 'bg-yellow-400'
+    color: 'bg-yellow-400',
+    textColor: 'text-black'
   },
   {
     name: 'Alfalfa',
@@ -15,7 +16,8 @@ export const albertaNectarSources = [
     albertaFact: 'Critical for seed production - purple fields everywhere!',
     tip: 'Purple flowers that smell amazing to bees',
     emoji: '🌸',
-    color: 'bg-purple-400'
+    color: 'bg-purple-400',
+    textColor: 'text-white'
   },
   {
     name: 'Sweet Clover',
@@ -24,7 +26,8 @@ export const albertaNectarSources = [
     albertaFact: 'Major honey source - white/pink flowers along roadsides',
     tip: 'Bees LOVE this - produces the famous Alberta white honey',
     emoji: '🌺',
-    color: 'bg-pink-400'
+    color: 'bg-pink-400',
+    textColor: 'text-white'
   },
   {
     name: 'Wild Rose',
@@ -33,7 +36,8 @@ export const albertaNectarSources = [
     albertaFact: 'Alberta\'s provincial flower! Pink wild roses everywhere',
     tip: 'Our provincial flower - bees love the pink blossoms',
     emoji: '🌹',
-    color: 'bg-rose-400'
+    color: 'bg-rose-400',
+    textColor: 'text-white'
   },
   {
     name: 'Fireweed',
@@ -42,7 +46,8 @@ export const albertaNectarSources = [
     albertaFact: 'First to grow after forest fires - pink towers of flowers',
     tip: 'Tall pink flower spikes that grow after fires',
     emoji: '🌿',
-    color: 'bg-pink-500'
+    color: 'bg-pink-500',
+    textColor: 'text-white'
   }
 ];
 

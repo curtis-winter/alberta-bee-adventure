@@ -10,7 +10,7 @@ const albertaPlants = [
   {
     name: 'CANOLA',
     color: 'bg-yellow-400',
-    textColor: 'text-stone-900',
+    textColor: 'text-black',
     bloomPeriod: 'June-July',
     honeyColor: 'Light amber',
     albertaFact: 'Primary honey crop - worth $1.2B in pollination services',
@@ -60,7 +60,7 @@ const albertaPlants = [
   {
     name: 'GOLDENROD',
     color: 'bg-yellow-500',
-    textColor: 'text-stone-900',
+    textColor: 'text-black',
     bloomPeriod: 'August-September',
     honeyColor: 'Dark amber, strong flavor',
     albertaFact: 'Late summer nectar source - golden fields in August',
@@ -70,7 +70,7 @@ const albertaPlants = [
   {
     name: 'DANDELION',
     color: 'bg-yellow-300',
-    textColor: 'text-stone-900',
+    textColor: 'text-black',
     bloomPeriod: 'April-May',
     honeyColor: 'Extra light amber',
     albertaFact: 'Critical early spring food - first feast after long winter!',

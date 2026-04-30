@@ -13,7 +13,8 @@ const albertaMonths = [
     activity: 'Beekeepers: Check hives from outside - clear snow from entrances',
     albertaFact: 'Alberta bees can survive -30°C by eating honey and shivering',
     icon: '❄️',
-    color: 'bg-blue-500'
+    color: 'bg-blue-500',
+    textColor: 'text-white'
   },
   {
     month: 'February',
@@ -22,7 +23,8 @@ const albertaMonths = [
     activity: 'Beekeepers: Lift hive heft to estimate food stores',
     albertaFact: 'Strong Alberta colonies need 80-100lbs honey to survive winter',
     icon: '🍰',
-    color: 'bg-blue-600'
+    color: 'bg-blue-600',
+    textColor: 'text-white'
   },
   {
     month: 'March',
@@ -31,7 +33,8 @@ const albertaMonths = [
     activity: 'Look for: Yellow streaks on snow (bee waste)',
     albertaFact: 'Alberta beekeepers call this the "poop flight" - bees hold it all winter!',
     icon: '🚽',
-    color: 'bg-blue-700'
+    color: 'bg-blue-700',
+    textColor: 'text-white'
   },
   {
     month: 'April',
@@ -39,8 +42,9 @@ const albertaMonths = [
     description: 'Spring inspection - beekeepers check for disease, add pollen patties',
     activity: 'Beekeepers: Reverse boxes so brood is on bottom',
     albertaFact: 'Pollen patties help raise brood when natural pollen is scarce',
-    icon: '🩺',
-    color: 'bg-green-500'
+    icon: '🍺',
+    color: 'bg-green-500',
+    textColor: 'text-black'
   },
   {
     month: 'May',
@@ -49,7 +53,8 @@ const albertaMonths = [
     activity: 'Watch for: Swarms hanging from tree branches',
     albertaFact: 'One strong Alberta hive can produce 2-3 lb of bees PER DAY in May!',
     icon: '🐝💨',
-    color: 'bg-yellow-400'
+    color: 'bg-yellow-400',
+    textColor: 'text-black'
   },
   {
     month: 'June',
@@ -58,7 +63,8 @@ const albertaMonths = [
     activity: 'See: Fields turn bright yellow across central Alberta',
     albertaFact: 'Alberta grows 22% of world\'s canola - honeybees are essential pollinators!',
     icon: '🌼',
-    color: 'bg-amber-400'
+    color: 'bg-amber-400',
+    textColor: 'text-black'
   },
   {
     month: 'July',
@@ -67,7 +73,8 @@ const albertaMonths = [
     activity: 'Listen for: The roar of bee blowers in Alberta apiaries',
     albertaFact: 'A strong Alberta hive can produce 60-80lbs of honey in a good year',
     icon: '🍯',
-    color: 'bg-amber-500'
+    color: 'bg-amber-500',
+    textColor: 'text-black'
   },
   {
     month: 'August',
@@ -76,7 +83,8 @@ const albertaMonths = [
     activity: 'Beekeepers: Treat for varroa mites before winter bees emerge',
     albertaFact: 'Winter bees born in August/September must live 6+ months!',
     icon: '🐭🚫',
-    color: 'bg-orange-500'
+    color: 'bg-orange-500',
+    textColor: 'text-white'
   },
   {
     month: 'September',
@@ -85,7 +93,8 @@ const albertaMonths = [
     activity: 'Beekeepers: Feed heavy syrup so bees can cure and cap it',
     albertaFact: 'Alberta bees prefer syrup over honey for winter storage in cold climates',
     icon: '🍯➕',
-    color: 'bg-red-500'
+    color: 'bg-red-500',
+    textColor: 'text-white'
   },
   {
     month: 'October',
@@ -94,7 +103,8 @@ const albertaMonths = [
     activity: 'See: Black tarpaper wraps absorbing sunshine heat',
     albertaFact: 'Black wraps can raise hive temperature by 10-15°F on sunny winter days',
     icon: '🧣',
-    color: 'bg-brown-500'
+    color: 'bg-brown-500',
+    textColor: 'text-white'
   },
   {
     month: 'November',
@@ -103,7 +113,8 @@ const albertaMonths = [
     activity: 'Listen for: Soft humming from clustered bees inside hive',
     albertaFact: 'The winter cluster stays 92°F at the core - even when outside is -40°F!',
     icon: '😴',
-    color: 'bg-gray-600'
+    color: 'bg-gray-600',
+    textColor: 'text-white'
   },
   {
     month: 'December',
@@ -112,7 +123,8 @@ const albertaMonths = [
     activity: 'Beekeepers: Repair equipment, read bee journals, plan next year',
     albertaFact: 'As days lengthen, queen starts laying slightly more eggs',
     icon: '☀️',
-    color: 'bg-gray-700'
+    color: 'bg-gray-700',
+    textColor: 'text-white'
   }
 ];
 
@@ -131,7 +143,7 @@ export default function AlbertaSeasons({ onNext }: AlbertaSeasonsProps) {
             initial={{ x: index % 2 === 0 ? -100 : 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: index * 0.05 }}
-            className={`brutalist-card border-[8px] ${month.color} text-white`}
+            className={`brutalist-card border-[8px] ${month.color} ${month.textColor || 'text-white'}`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-8">
               <div className="text-center">

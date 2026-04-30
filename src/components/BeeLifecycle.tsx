@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
@@ -43,6 +43,24 @@ const stages = [
 
 export default function BeeLifecycle({ onNext }: BeeLifecycleProps) {
   const [index, setIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) {
+        setIndex(Math.min(stages.length - 1, index + 1));
+      } else {
+        setIndex(Math.max(0, index - 1));
+      }
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
@@ -51,7 +69,11 @@ export default function BeeLifecycle({ onNext }: BeeLifecycleProps) {
         <p className="text-xl text-sky-900 font-bold bg-sky-200 px-6 py-2 rounded-full inline-block uppercase tracking-tight italic">From dust to wings!</p>
       </div>
 
-      <div className="relative bg-white border-4 border-black border-b-[12px] border-stone-300 rounded-[3rem] overflow-hidden shadow-[12px_12px_0px_0px_rgba(0,0,0,0.05)]">
+      <div 
+className="relative bg-white border-4 border-black border-b-[12px] border-stone-300 rounded-[3rem] overflow-hidden shadow-[12px_12px_0px_0px_rgba(0,0,0,0.05)]"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="flex flex-col lg:flex-row">
           {/* Image Side */}
           <div className="lg:w-1/2 h-[400px] lg:h-auto relative">

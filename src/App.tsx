@@ -8,7 +8,8 @@ import {
   Info,
   Users,
   Map,
-  ChevronRight
+  ChevronRight,
+  ArrowUp
 } from 'lucide-react';
 import Home from './components/Home';
 import BeeLifecycle from './components/BeeLifecycle';
@@ -19,17 +20,27 @@ import AlbertaFlora from './components/AlbertaFlora';
 import AlbertaBeekeeperProfiles from './components/AlbertaBeekeeperProfiles';
 import AlbertaChallengesSolutions from './components/AlbertaChallengesSolutions';
 import AlbertaWinter from './components/AlbertaWinter';
+import ErrorBoundary from './components/ErrorBoundary';
 
 export type Section = 'home' | 'lifecycle' | 'types' | 'map' | 'seasons' | 'flora' | 'beekeepers' | 'challenges' | 'winter';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<Section>('home');
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 200);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { id: 'home', label: 'Welcome', icon: HomeIcon, color: 'bg-yellow-400' },
@@ -46,7 +57,7 @@ export default function App() {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // nav height
+      const offset = 132; // nav + progress bar height
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -84,10 +95,50 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const activeBtn = document.querySelector(`[aria-current="true"]`) as HTMLElement;
+    const navContainer = document.querySelector('.nav-scroll-container') as HTMLElement;
+    if (activeBtn && navContainer) {
+      const btnRect = activeBtn.getBoundingClientRect();
+      const navRect = navContainer.getBoundingClientRect();
+      const offset = 280;
+      const scrollPos = activeBtn.offsetLeft - navRect.width / 2 + btnRect.width / 2 - offset;
+      navContainer.scrollTo({ left: Math.max(0, scrollPos), behavior: 'smooth' });
+    }
+  }, [activeSection]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.altKey || e.metaKey) return;
+      
+      const sectionIds = navItems.map(item => item.id);
+      const currentIndex = sectionIds.indexOf(activeSection);
+      
+      if (e.key === 'ArrowDown' || e.key === 'j') {
+        e.preventDefault();
+        const nextIndex = Math.min(currentIndex + 1, sectionIds.length - 1);
+        scrollTo(sectionIds[nextIndex]);
+      } else if (e.key === 'ArrowUp' || e.key === 'k') {
+        e.preventDefault();
+        const prevIndex = Math.max(currentIndex - 1, 0);
+        scrollTo(sectionIds[prevIndex]);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        scrollTo('home');
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        scrollTo('winter');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeSection]);
+
   return (
-    <div className="min-h-screen bg-sky-50 font-sans text-stone-900 overflow-x-hidden selection:bg-yellow-400">
+    <div className="min-h-screen bg-sky-50 font-sans text-stone-900 selection:bg-yellow-400 overflow-x-clip">
       {/* Background Decorative Elements */}
-      <div className="fixed inset-0 pointer-events-none z-0 opacity-20">
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-20" aria-hidden="true">
         <div className="absolute top-10 left-20 text-6xl">☁️</div>
         <div className="absolute top-20 right-40 text-7xl text-white">☁️</div>
         <div className="absolute bottom-32 left-1/4 text-6xl">🌼</div>
@@ -95,15 +146,18 @@ export default function App() {
       </div>
 
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b-8 border-black">
-          <div className="max-w-7xl mx-auto px-6 h-24 flex items-center gap-4">
+        <nav className="fixed top-0 left-0 right-0 z-[60] bg-white border-b-8 border-black pb-2">
+          <div className="max-w-7xl mx-auto px-6 h-28 flex items-center gap-4">
             <motion.div 
               className="flex items-center gap-3 cursor-pointer group shrink-0"
               whileHover={{ scale: 1.02 }}
               onClick={() => scrollTo('home')}
+              role="button"
+              tabIndex={0}
+              aria-label="Return to home"
             >
               <div className="bg-yellow-400 p-2 border-4 border-black group-hover:rotate-12 transition-transform">
-                <Bug className="w-8 h-8 text-black" />
+                <span className="text-3xl block leading-none" role="img" aria-label="bee">🐝</span>
               </div>
               <div className="flex flex-col leading-none">
                 <span className="font-black text-3xl uppercase tracking-tighter text-amber-500">
@@ -115,19 +169,21 @@ export default function App() {
               </div>
             </motion.div>
 
-            <div className="flex-1 overflow-x-auto">
-              <div className="flex gap-2 min-w-max pr-4">
+            <div className="flex-1 overflow-x-auto nav-scroll-container [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="flex gap-2 min-w-max">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
+                    aria-label={`Navigate to ${item.label} section`}
+                    aria-current={activeSection === item.id ? 'true' : undefined}
                     className={`flex items-center gap-2 px-4 py-2 border-4 border-black transition-all text-sm font-black uppercase tracking-tight shrink-0 ${
                       activeSection === item.id 
                         ? `${item.color} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] translate-x-[-2px] translate-y-[-2px]` 
                         : 'bg-white hover:bg-stone-50 text-stone-900 shadow-none grayscale opacity-60'
                     }`}
                   >
-                    <item.icon className="w-4 h-4" />
+                    <item.icon className="w-4 h-4" aria-hidden="true" />
                     <span className="hidden sm:block">{item.label}</span>
                   </button>
                 ))}
@@ -142,55 +198,72 @@ export default function App() {
        </nav>
 
         {/* Main Content Area */}
-        <main className="pt-24 min-h-screen relative z-10 flex flex-col items-center">
+        <main className="pt-32 min-h-screen relative z-10 flex flex-col items-center">
           <section id="home" className="w-full min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 border-b-8 border-black/5">
-            <Home onStart={() => scrollTo('lifecycle')} />
+            <ErrorBoundary>
+              <Home onStart={() => scrollTo('lifecycle')} />
+            </ErrorBoundary>
           </section>
           
           <section id="lifecycle" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <BeeLifecycle onNext={() => scrollTo('types')} />
+            <ErrorBoundary>
+              <BeeLifecycle onNext={() => scrollTo('types')} />
+            </ErrorBoundary>
           </section>
 
           <section id="types" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-            <BeeTypes onNext={() => scrollTo('map')} />
+            <ErrorBoundary>
+              <BeeTypes onNext={() => scrollTo('map')} />
+            </ErrorBoundary>
           </section>
 
           <section id="map" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <AlbertaStats onNext={() => scrollTo('seasons')} />
+            <ErrorBoundary>
+              <AlbertaStats onNext={() => scrollTo('seasons')} />
+            </ErrorBoundary>
           </section>
 
           <section id="seasons" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-            <AlbertaSeasons onNext={() => scrollTo('flora')} />
+            <ErrorBoundary>
+              <AlbertaSeasons onNext={() => scrollTo('flora')} />
+            </ErrorBoundary>
           </section>
 
           <section id="flora" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <AlbertaFlora onNext={() => scrollTo('beekeepers')} />
+            <ErrorBoundary>
+              <AlbertaFlora onNext={() => scrollTo('beekeepers')} />
+            </ErrorBoundary>
           </section>
 
           <section id="beekeepers" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-            <AlbertaBeekeeperProfiles onNext={() => scrollTo('challenges')} />
+            <ErrorBoundary>
+              <AlbertaBeekeeperProfiles onNext={() => scrollTo('challenges')} />
+            </ErrorBoundary>
           </section>
 
           <section id="challenges" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <AlbertaChallengesSolutions onNext={() => scrollTo('winter')} />
+            <ErrorBoundary>
+              <AlbertaChallengesSolutions onNext={() => scrollTo('winter')} />
+            </ErrorBoundary>
           </section>
 
-          <section id="winter" className="w-full min-h-screen flex items-center justify-center py-24">
-            <AlbertaWinter onNext={() => scrollTo('home')} />
+<section id="winter" className="w-full min-h-screen flex items-center justify-center py-24">
+            <ErrorBoundary>
+              <AlbertaWinter onNext={() => scrollTo('home')} />
+            </ErrorBoundary>
           </section>
         </main>
 
-       {/* Footer sticky-ish indicator */}
-       <footer className="h-24 bg-green-500 border-t-8 border-black flex items-center justify-between px-6 md:px-12 z-50 sticky bottom-0">
-         <div className="flex gap-4">
-           <button 
-             onClick={() => scrollTo('home')}
-             className="w-12 h-12 bg-white border-4 border-black rounded-full flex items-center justify-center text-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
-           >
-             🏡
-           </button>
-         </div>
-       </footer>
+        {/* Scroll to top button */}
+        {showScrollTop && (
+          <button
+            onClick={() => scrollTo('home')}
+            aria-label="Scroll to top"
+            className="fixed left-4 top-1/2 -translate-y-1/2 z-[70] w-12 h-12 bg-black border-4 border-white rounded-full flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:bg-stone-800 transition-colors"
+          >
+            <ArrowUp className="w-6 h-6 text-yellow-400" strokeWidth={3} />
+          </button>
+        )}
     </div>
   );
 }

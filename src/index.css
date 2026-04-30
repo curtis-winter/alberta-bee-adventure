@@ -12,7 +12,7 @@
 
 @layer base {
   body {
-    @apply bg-bee-sky text-stone-900 antialiased overflow-x-hidden;
+    @apply bg-bee-sky text-stone-900 antialiased;
   }
 }
 

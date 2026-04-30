@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Heart, ShieldCheck, Zap, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 interface BeeTypesProps {
   onNext: () => void;
@@ -69,10 +69,6 @@ export default function BeeTypes({ onNext }: BeeTypesProps) {
                 className="w-full h-full object-cover transition-all duration-500" 
                 alt={bee.role}
               />
-              {/* Removed grayscale and mix-blend-multiply for accuracy */}
-              <div className="absolute top-6 left-6 bg-white border-4 border-black px-4 py-2 rounded-2xl font-black text-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                {bee.emoji}
-              </div>
             </div>
 
             <div className="p-8 flex-1 flex flex-col">

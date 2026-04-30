@@ -10,7 +10,7 @@ const beekeepers = [
   {
     name: 'Sarah from Red Deer',
     years: '15 years',
-    image: '/images/beekeepers/sarah.jpg',
+    image: '/images/beekeepers/sarah.svg',
     story: 'I started beekeeping when my kids were in grade 3. Now they help me check hives every spring!',
     tip: 'In central Alberta, I always check my hives by May 1st - that\'s when winter bees start dying off and spring bees take over.',
     funFact: 'My hives produced 120lbs of honey last year - enough for 960 jars!',
@@ -20,7 +20,7 @@ const beekeepers = [
   {
     name: 'Mike from Lethbridge',
     years: '8 years',
-    image: '/images/beekeepers/mike.jpg',
+    image: '/images/beekeepers/mike.svg',
     story: 'I keep bees in the coulee near the Oldman River. The microclimate there is perfect for early spring buildup!',
     tip: 'Southern Alberta beekeepers can start inspections 2 weeks earlier than Edmonton - we get chinooks!',
     funFact: 'My bees pollinate $50,000 worth of canola and alfalfa seed crops each year!',
@@ -30,7 +30,7 @@ const beekeepers = [
   {
     name: 'Chen from Edmonton',
     years: '3 years',
-    image: '/images/beekeepers/chen.jpg',
+    image: '/images/beekeepers/chen.svg',
     story: 'I started with one hive on my garage roof in the city. Now I have 15 hives across 3 community gardens!',
     tip: 'Urban beekeepers need to register with the city and keep hives 3m from property lines.',
     funFact: 'City bees often produce more honey than rural ones - they have 200+ different flowers within 1km!',
@@ -40,7 +40,7 @@ const beekeepers = [
   {
     name: 'Priya from Peace River',
     years: '22 years',
-    image: '/images/beekeepers/priya.jpg',
+    image: '/images/beekeepers/priya.svg',
     story: 'Up north, we have the shortest season but the sweetest clover honey. Our days are long in summer!',
     tip: 'Peace River beekeepers wrap hives by September 15th - winter comes fast in the north!',
     funFact: 'Peace River clover honey wins national awards for its mild, floral flavor!',

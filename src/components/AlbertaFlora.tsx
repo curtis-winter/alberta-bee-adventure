@@ -15,7 +15,8 @@ const albertaPlants = [
     honeyColor: 'Light amber',
     albertaFact: 'Primary honey crop - worth $1.2B in pollination services',
     tip: 'Bright yellow fields across central Alberta!',
-    emoji: '🌼'
+    emoji: '🌼',
+    image: './images/flora/canola.jpg'
   },
   {
     name: 'ALFALFA',
@@ -25,7 +26,8 @@ const albertaPlants = [
     honeyColor: 'White to extra light amber',
     albertaFact: 'Critical for seed production - purple fields everywhere!',
     tip: 'Purple flowers that smell amazing to bees',
-    emoji: '🌸'
+    emoji: '🌸',
+    image: './images/flora/alfalfa.jpg'
   },
   {
     name: 'SWEET CLOVER',
@@ -35,7 +37,8 @@ const albertaPlants = [
     honeyColor: 'White (prized by chefs!)',
     albertaFact: 'Major honey source - white/pink flowers along roadsides',
     tip: 'Bees LOVE this - produces the famous Alberta white honey',
-    emoji: '🌺'
+    emoji: '🌺',
+    image: './images/flora/sweet-clover.jpg'
   },
   {
     name: 'WILD ROSE',
@@ -45,7 +48,8 @@ const albertaPlants = [
     honeyColor: 'Light amber with floral notes',
     albertaFact: 'Alberta\'s provincial flower! Pink wild roses everywhere',
     tip: 'Our provincial flower - bees love the pink blossoms',
-    emoji: '🌹'
+    emoji: '🌹',
+    image: './images/flora/wild-rose.jpg'
   },
   {
     name: 'FIREWEED',
@@ -55,7 +59,8 @@ const albertaPlants = [
     honeyColor: 'Amber with distinctive flavor',
     albertaFact: 'First to grow after forest fires - pink towers of flowers',
     tip: 'Tall pink flower spikes that grow after fires',
-    emoji: '🌿'
+    emoji: '🌿',
+    image: './images/flora/fireweed.jpg'
   },
   {
     name: 'GOLDENROD',
@@ -65,7 +70,8 @@ const albertaPlants = [
     honeyColor: 'Dark amber, strong flavor',
     albertaFact: 'Late summer nectar source - golden fields in August',
     tip: 'Late summer super-food for bees preparing for winter',
-    emoji: '🌾'
+    emoji: '🌾',
+    image: './images/flora/goldenrod.jpg'
   },
   {
     name: 'DANDELION',
@@ -75,7 +81,8 @@ const albertaPlants = [
     honeyColor: 'Extra light amber',
     albertaFact: 'Critical early spring food - first feast after long winter!',
     tip: 'The FIRST flowers bees visit in spring - bright yellow lawns',
-    emoji: '🌼'
+    emoji: '🌼',
+    image: './images/flora/dandelion.jpg'
   },
   {
     name: 'WILLOW',
@@ -85,7 +92,8 @@ const albertaPlants = [
     honeyColor: 'Light with minty notes',
     albertaFact: 'Essential early pollen source - fuzzy catkins along rivers',
     tip: 'Fuzzy catkins that bloom before leaves appear',
-    emoji: '🌳'
+    emoji: '🌳',
+    image: './images/flora/willow.jpg'
   }
 ];
 
@@ -122,9 +130,15 @@ export default function AlbertaFlora({ onNext }: AlbertaFloraProps) {
               className={`brutalist-card rounded-[2.5rem] overflow-hidden cursor-pointer ${isSelected ? 'ring-4 ring-yellow-400' : ''}`}
               onClick={() => setSelectedPlant(isSelected ? null : plant.name)}
             >
-              <div className={`${plant.color} p-8 text-center ${plant.textColor || 'text-white'}`}>
-                <div className="text-6xl mb-4">{plant.emoji}</div>
-                <h3 className="text-2xl font-black uppercase tracking-tighter">{plant.name}</h3>
+              <div className="h-48 bg-black flex items-center justify-center overflow-hidden">
+                {plant.image ? (
+                  <img src={plant.image} alt={plant.name} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="text-6xl">{plant.emoji}</div>
+                )}
+              </div>
+              <div className={`${plant.color} p-6 text-center ${plant.textColor || 'text-white'}`}>
+                <h3 className="text-xl font-black uppercase tracking-tighter">{plant.name}</h3>
               </div>
             </motion.div>
           );
@@ -141,15 +155,15 @@ export default function AlbertaFlora({ onNext }: AlbertaFloraProps) {
             className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedPlant(null)}
           >
-            <motion.div
+<motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-white border-4 border-black rounded-[3rem] p-8 max-w-md w-full max-h-[80vh] overflow-y-auto"
+              className="bg-white border-4 border-black rounded-[3rem] p-6 max-w-md w-full max-h-[80vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex justify-between items-start mb-6">
-                <h3 className="text-3xl font-black uppercase tracking-tighter">{selectedPlantData.name}</h3>
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-2xl font-black uppercase tracking-tighter">{selectedPlantData.name}</h3>
                 <button
                   onClick={() => setSelectedPlant(null)}
                   className="text-2xl font-black hover:text-stone-500"
@@ -157,12 +171,19 @@ export default function AlbertaFlora({ onNext }: AlbertaFloraProps) {
                   <X className="w-6 h-6" />
                 </button>
               </div>
-              
-              <div className={`${selectedPlantData.color} p-8 rounded-2xl text-center mb-6`}>
-                <div className="text-8xl mb-4">{selectedPlantData.emoji}</div>
-                <div className="space-y-3 text-white">
-                  <p className="font-black uppercase text-sm tracking-widest">Bloom Period: <span className="font-bold normal-case">{selectedPlantData.bloomPeriod}</span></p>
-                  <p className="font-black uppercase text-sm tracking-widest">Honey Color: <span className="font-bold normal-case">{selectedPlantData.honeyColor}</span></p>
+
+              <div className="h-48 bg-black rounded-2xl mb-4 overflow-hidden">
+                {selectedPlantData.image ? (
+                  <img src={selectedPlantData.image} alt={selectedPlantData.name} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="text-6xl flex items-center justify-center h-full">{selectedPlantData.emoji}</div>
+                )}
+              </div>
+               
+              <div className={`${selectedPlantData.color} p-6 rounded-2xl text-center mb-4`}>
+                <div className="space-y-2 text-white text-sm">
+                  <p className="font-black uppercase text-xs tracking-widest">Bloom: <span className="font-bold normal-case">{selectedPlantData.bloomPeriod}</span></p>
+                  <p className="font-black uppercase text-xs tracking-widest">Honey: <span className="font-bold normal-case">{selectedPlantData.honeyColor}</span></p>
                 </div>
               </div>
 

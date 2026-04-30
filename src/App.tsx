@@ -13,12 +13,14 @@ import {
 import Home from './components/Home';
 import BeeLifecycle from './components/BeeLifecycle';
 import BeeTypes from './components/BeeTypes';
-import PollenGame from './components/PollenGame';
-import HiveExplorer from './components/HiveExplorer';
 import AlbertaStats from './components/AlbertaStats';
+import AlbertaSeasons from './components/AlbertaSeasons';
+import AlbertaFlora from './components/AlbertaFlora';
+import AlbertaBeekeeperProfiles from './components/AlbertaBeekeeperProfiles';
+import AlbertaChallengesSolutions from './components/AlbertaChallengesSolutions';
 import AlbertaWinter from './components/AlbertaWinter';
 
-export type Section = 'home' | 'lifecycle' | 'types' | 'explorer' | 'map' | 'game' | 'winter';
+export type Section = 'home' | 'lifecycle' | 'types' | 'map' | 'seasons' | 'flora' | 'beekeepers' | 'challenges' | 'winter';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<Section>('home');
@@ -33,10 +35,12 @@ export default function App() {
     { id: 'home', label: 'Welcome', icon: HomeIcon, color: 'bg-yellow-400' },
     { id: 'lifecycle', label: 'Bee Life', icon: Bug, color: 'bg-rose-400 text-white' },
     { id: 'types', label: 'Bee Team', icon: Users, color: 'bg-orange-400 text-white' },
-    { id: 'explorer', label: 'Hive Build', icon: Info, color: 'bg-amber-400' },
-    { id: 'map', label: 'Alberta Map', icon: Map, color: 'bg-emerald-400 text-white' },
-    { id: 'game', label: 'Pollen Power', icon: Flower2, color: 'bg-indigo-400 text-white' },
-    { id: 'winter', label: 'Winter', icon: Snowflake, color: 'bg-blue-400 text-white' },
+    { id: 'map', label: 'Alberta Stats', icon: Map, color: 'bg-emerald-400 text-white' },
+    { id: 'seasons', label: 'Seasons', icon: Snowflake, color: 'bg-blue-400 text-white' },
+    { id: 'flora', label: 'Flowers', icon: Flower2, color: 'bg-pink-400 text-white' },
+    { id: 'beekeepers', label: 'Keepers', icon: Users, color: 'bg-purple-400 text-white' },
+    { id: 'challenges', label: 'Challenges', icon: Bug, color: 'bg-red-400 text-white' },
+    { id: 'winter', label: 'Winter', icon: Snowflake, color: 'bg-blue-600 text-white' },
   ];
 
   const scrollTo = (id: string) => {
@@ -90,81 +94,91 @@ export default function App() {
         <div className="absolute bottom-24 right-1/4 text-6xl">🌸</div>
       </div>
 
-       {/* Navigation */}
-       <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b-8 border-black">
-         <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-          <motion.div 
-            className="flex items-center gap-3 cursor-pointer group"
-            whileHover={{ scale: 1.02 }}
-            onClick={() => scrollTo('home')}
-          >
-            <div className="bg-yellow-400 p-2 border-4 border-black group-hover:rotate-12 transition-transform">
-              <Bug className="w-8 h-8 text-black" />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-black text-3xl uppercase tracking-tighter text-amber-500">
-                ALBERTA <span className="text-black">BEES!</span>
-              </span>
-              <span className="text-xs font-bold text-sky-800 uppercase tracking-widest px-1.5 py-0.5 bg-sky-200 rounded-full w-fit mt-0.5">
-                Lab Adventure 🇨🇦
-              </span>
-            </div>
-          </motion.div>
+        {/* Navigation */}
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b-8 border-black">
+          <div className="max-w-7xl mx-auto px-6 h-24 flex items-center gap-4">
+            <motion.div 
+              className="flex items-center gap-3 cursor-pointer group shrink-0"
+              whileHover={{ scale: 1.02 }}
+              onClick={() => scrollTo('home')}
+            >
+              <div className="bg-yellow-400 p-2 border-4 border-black group-hover:rotate-12 transition-transform">
+                <Bug className="w-8 h-8 text-black" />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="font-black text-3xl uppercase tracking-tighter text-amber-500">
+                  ALBERTA <span className="text-black">BEES!</span>
+                </span>
+                <span className="text-xs font-bold text-sky-800 uppercase tracking-widest px-1.5 py-0.5 bg-sky-200 rounded-full w-fit mt-0.5">
+                  Lab Adventure 🇨🇦
+                </span>
+              </div>
+            </motion.div>
 
-          <div className="flex gap-2">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
-                className={`flex items-center gap-2 px-4 py-2 border-4 border-black transition-all text-sm font-black uppercase tracking-tight ${
-                  activeSection === item.id 
-                    ? `${item.color} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] translate-x-[-2px] translate-y-[-2px]` 
-                    : 'bg-white hover:bg-stone-50 text-stone-900 shadow-none grayscale opacity-60'
-                }`}
-              >
-                <item.icon className="w-4 h-4" />
-                <span className="hidden md:block">{item.label}</span>
-              </button>
-            ))}
+            <div className="flex-1 overflow-x-auto">
+              <div className="flex gap-2 min-w-max pr-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollTo(item.id)}
+                    className={`flex items-center gap-2 px-4 py-2 border-4 border-black transition-all text-sm font-black uppercase tracking-tight shrink-0 ${
+                      activeSection === item.id 
+                        ? `${item.color} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] translate-x-[-2px] translate-y-[-2px]` 
+                        : 'bg-white hover:bg-stone-50 text-stone-900 shadow-none grayscale opacity-60'
+                    }`}
+                  >
+                    <item.icon className="w-4 h-4" />
+                    <span className="hidden sm:block">{item.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-       {/* Progress bar under nav */}
-       <motion.div
-         className="h-1 bg-black origin-left mt-2"
-         style={{ scaleX }}
-       />
-      </nav>
+        {/* Progress bar under nav */}
+        <motion.div
+          className="h-1 bg-black origin-left mt-2"
+          style={{ scaleX }}
+        />
+       </nav>
 
-       {/* Main Content Area */}
-       <main className="pt-24 min-h-screen relative z-10 flex flex-col items-center">
-        <section id="home" className="w-full min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 border-b-8 border-black/5">
-          <Home onStart={() => scrollTo('lifecycle')} />
-        </section>
-        
-        <section id="lifecycle" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-          <BeeLifecycle onNext={() => scrollTo('types')} />
-        </section>
+        {/* Main Content Area */}
+        <main className="pt-24 min-h-screen relative z-10 flex flex-col items-center">
+          <section id="home" className="w-full min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 border-b-8 border-black/5">
+            <Home onStart={() => scrollTo('lifecycle')} />
+          </section>
+          
+          <section id="lifecycle" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
+            <BeeLifecycle onNext={() => scrollTo('types')} />
+          </section>
 
-        <section id="types" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-          <BeeTypes onNext={() => scrollTo('explorer')} />
-        </section>
+          <section id="types" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
+            <BeeTypes onNext={() => scrollTo('map')} />
+          </section>
 
-        <section id="explorer" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-          <HiveExplorer onNext={() => scrollTo('map')} />
-        </section>
+          <section id="map" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
+            <AlbertaStats onNext={() => scrollTo('seasons')} />
+          </section>
 
-        <section id="map" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-          <AlbertaStats onNext={() => scrollTo('game')} />
-        </section>
+          <section id="seasons" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
+            <AlbertaSeasons onNext={() => scrollTo('flora')} />
+          </section>
 
-        <section id="game" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-          <PollenGame onNext={() => scrollTo('winter')} />
-        </section>
+          <section id="flora" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
+            <AlbertaFlora onNext={() => scrollTo('beekeepers')} />
+          </section>
 
-        <section id="winter" className="w-full min-h-screen flex items-center justify-center py-24">
-          <AlbertaWinter />
-        </section>
-      </main>
+          <section id="beekeepers" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
+            <AlbertaBeekeeperProfiles onNext={() => scrollTo('challenges')} />
+          </section>
+
+          <section id="challenges" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
+            <AlbertaChallengesSolutions onNext={() => scrollTo('winter')} />
+          </section>
+
+          <section id="winter" className="w-full min-h-screen flex items-center justify-center py-24">
+            <AlbertaWinter onNext={() => scrollTo('home')} />
+          </section>
+        </main>
 
       {/* Footer sticky-ish indicator */}
       <footer className="h-24 bg-green-500 border-t-8 border-black flex items-center justify-between px-6 md:px-12 z-50 sticky bottom-0">

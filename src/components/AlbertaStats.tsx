@@ -1,92 +1,128 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Map, Flower, Users, Droplets, ChevronRight } from 'lucide-react';
+import { albertaNectarSources, albertaHoneyMath } from '../data/albertaFacts';
 
 interface AlbertaStatsProps {
   onNext: () => void;
 }
 
-const nectarSources = [
-  { name: 'CLOVER', emoji: '☘️', color: 'bg-emerald-400', desc: 'The #1 source! Alberta is famous for "Clover Honey" which is crystal clear and sweet.' },
-  { name: 'ALFALFA', emoji: '💜', color: 'bg-indigo-400', desc: 'Farmers grow this for cattle, and bees LOVE the purple flowers.' },
-  { name: 'CANOLA', emoji: '🌼', color: 'bg-yellow-400', desc: 'Huge fields of yellow in the summer. It makes a very white, creamy honey.' },
-  { name: 'WILDFLOWERS', emoji: '🌸', color: 'bg-rose-400', desc: 'Natural prairie flowers give Alberta honey a unique, floral taste!' },
-];
+const nectarSources = albertaNectarSources.map(s => ({
+  ...s,
+  emoji: s.emoji
+}));
 
 export default function AlbertaStats({ onNext }: AlbertaStatsProps) {
+  const [showMath, setShowMath] = useState(false);
+
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        
-        {/* Left Side: Map & Populations */}
-        <div className="order-2 lg:order-1">
-          <div className="bg-white border-4 border-black border-b-[12px] border-emerald-600 rounded-[3rem] p-10 shadow-[12px_12px_0px_0px_rgba(0,0,0,0.05)]">
-            <h2 className="text-5xl font-black text-black uppercase tracking-tighter mb-8 leading-none">Alberta: <span className="text-emerald-500 text-6xl">Honey Capital!</span></h2>
-            
-            <div className="space-y-8">
-              <div className="flex items-center gap-6">
-                <div className="w-20 h-20 bg-amber-100 border-4 border-black rounded-3xl flex items-center justify-center text-4xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">🏙️</div>
-                <div>
-                  <p className="text-3xl font-black uppercase tracking-tighter text-black">300,000+ HIVES</p>
-                  <p className="font-bold text-stone-500 uppercase tracking-tight">Living across the Alberta prairies.</p>
-                </div>
-              </div>
+      <div className="text-center mb-12">
+        <h2 className="text-5xl lg:text-7xl font-black text-black uppercase tracking-tighter mb-4">Alberta Honey Facts</h2>
+        <p className="text-xl text-sky-900 font-bold bg-sky-200 px-6 py-2 rounded-full inline-block uppercase tracking-tight">Fun statistics from our province!</p>
+      </div>
 
-              <div className="flex items-center gap-6">
-                <div className="w-20 h-20 bg-indigo-100 border-4 border-black rounded-3xl flex items-center justify-center text-4xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">🏗️</div>
-                <div>
-                  <p className="text-3xl font-black uppercase tracking-tighter text-black">40% OF CANADA'S HONEY</p>
-                  <p className="font-bold text-stone-500 uppercase tracking-tight">Comes from our hard-working bees!</p>
-                </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
+        {/* Left: Key Statistics */}
+        <div className="space-y-6">
+          <div className="brutalist-card p-8 bg-amber-50">
+            <div className="flex items-center gap-6">
+              <div className="text-6xl">🏙️</div>
+              <div>
+                <p className="text-4xl font-black uppercase tracking-tighter">300,000+ HIVES</p>
+                <p className="font-bold text-stone-600">Across Alberta prairies</p>
               </div>
+            </div>
+          </div>
 
-              <div className="bg-stone-50 border-4 border-black p-6 rounded-3xl relative overflow-hidden group">
-                 <img 
-                    src="https://images.unsplash.com/photo-1508204841652-6c1f4dd57ac1?auto=format&fit=crop&q=80&w=800" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-20 filter grayscale group-hover:grayscale-0 transition-all duration-700" 
-                    alt="Alberta Fields"
-                    referrerPolicy="no-referrer"
-                 />
-                 <div className="relative z-10 flex items-center gap-4">
-                    <Map className="w-10 h-10 text-emerald-500" strokeWidth={3} />
-                    <p className="font-black uppercase italic text-lg leading-tight">Bees fly for kilometers across our flat, sunny landscapes!</p>
-                 </div>
+          <div className="brutalist-card p-8 bg-emerald-50">
+            <div className="flex items-center gap-6">
+              <div className="text-6xl">🍯</div>
+              <div>
+                <p className="text-4xl font-black uppercase tracking-tighter">40 MILLION LBS</p>
+                <p className="font-bold text-stone-600">Honey produced yearly</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="brutalist-card p-8 bg-blue-50">
+            <div className="flex items-center gap-6">
+              <div className="text-6xl">🏭</div>
+              <div>
+                <p className="text-4xl font-black uppercase tracking-tighter">40% OF CANADA'S</p>
+                <p className="font-bold text-stone-600">Honey comes from Alberta!</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="brutalist-card p-8 bg-purple-50">
+            <div className="flex items-center gap-6">
+              <div className="text-6xl">💰</div>
+              <div>
+                <p className="text-4xl font-black uppercase tracking-tighter">$2.6 BILLION</p>
+                <p className="font-bold text-stone-600">Pollination services value</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Side: Nectar Sources */}
-        <div className="order-1 lg:order-2">
-          <h3 className="text-4xl font-black uppercase tracking-tighter mb-8 italic text-amber-500 underline decoration-black underline-offset-8">What do they eat?</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {nectarSources.map((source) => (
+        {/* Right: Nectar Sources */}
+        <div>
+          <h3 className="text-3xl font-black uppercase tracking-tighter mb-6 italic text-amber-500">What do they eat?</h3>
+          <div className="space-y-4">
+            {nectarSources.map((source, idx) => (
               <motion.div 
                 key={source.name}
-                whileHover={{ scale: 1.05, rotate: -1 }}
-                className={`p-6 border-4 border-black rounded-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${source.color}`}
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: idx * 0.1 }}
+                className={`p-6 border-4 border-black rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${source.color} text-white`}
               >
-                <div className="bg-white border-4 border-black w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  {source.emoji}
+                <div className="flex items-center gap-4">
+                  <div className="text-3xl">{source.emoji}</div>
+                  <div>
+                    <h4 className="text-xl font-black uppercase tracking-tighter">{source.name}</h4>
+                    <p className="font-bold text-sm opacity-90">{source.bloomPeriod} • {source.honeyColor}</p>
+                  </div>
                 </div>
-                <h4 className="text-2xl font-black uppercase tracking-tighter text-white drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] mb-2 italic">{source.name}</h4>
-                <p className="text-xs font-bold text-black opacity-80 leading-tight uppercase tracking-tight">
-                  {source.desc}
-                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="mt-20 flex justify-center">
+      {/* Honey Math Facts */}
+      <div className="text-center mb-8">
+        <button
+          onClick={() => setShowMath(!showMath)}
+          className="bg-white border-4 border-black font-black uppercase px-8 py-3 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+        >
+          {showMath ? 'Hide' : 'Show'} Honey Math! 🧮
+        </button>
+      </div>
+
+      {showMath && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
+        >
+          {albertaHoneyMath.map((item, idx) => (
+            <div key={idx} className="bg-yellow-50 border-4 border-black p-4 rounded-2xl text-center">
+              <p className="font-bold text-sm">{item.fact}</p>
+            </div>
+          ))}
+        </motion.div>
+      )}
+
+      <div className="flex justify-center">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={onNext}
           className="bg-black text-white font-black uppercase tracking-tighter px-12 py-5 rounded-2xl inline-flex items-center gap-3 shadow-[8px_8px_0px_0px_rgba(16,185,129,1)] transition-all"
         >
-           Play Pollen Dash!
+           Meet the Beekeeper's Year!
           <ChevronRight strokeWidth={4} className="w-6 h-6" />
         </motion.button>
       </div>

@@ -18,7 +18,8 @@ const beeTypes = [
       'Can live up to 5 years.',
       'She is the largest bee in the hive.',
       'Only one Queen lives in each hive.'
-    ]
+    ],
+    albertaFact: 'Alberta queens often bred for winter hardiness - they start laying earlier in spring to maximize short summer!'
   },
   {
     role: 'THE WORKERS',
@@ -31,7 +32,8 @@ const beeTypes = [
       'They do ALL the work: cleaning, nursing, and building.',
       'They find the best Alberta flowers for nectar.',
       'A hive can have 50,000 workers!'
-    ]
+    ],
+    albertaFact: 'Alberta workers may visit 5,000+ flowers daily during canola bloom - that\'s like visiting every store in West Edmonton Mall!'
   },
   {
     role: 'THE DRONES',
@@ -44,7 +46,8 @@ const beeTypes = [
       'They have extra-large eyes to see the Queen.',
       'They do not have stingers!',
       'They eat plenty of honey to stay strong.'
-    ]
+    ],
+    albertaFact: 'Alberta drones are larger to generate more heat - crucial for keeping hives warm during -30°C winters!'
   }
 ];
 

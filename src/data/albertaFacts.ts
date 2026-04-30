@@ -54,11 +54,11 @@ export const albertaNectarSources = [
 export const albertaHoneyMath = [
   { fact: 'One Alberta honeybee makes 1/12 tsp of honey in her lifetime' },
   { fact: 'To fill this jar, Alberta bees flew 2x around Earth!' },
-  { fact: 'Alberta\'s 280,000 colonies produce 40 million lbs honey yearly' },
+  { fact: 'Alberta\'s 280,000 colonies produce 18 million kg honey yearly' },
   { fact: 'That\'s enough honey to fill 100 Olympic swimming pools!' },
   { fact: 'One colony pollinates $300+ in Alberta canola seed value' },
-  { fact: 'One strong hive can produce 60-80lbs of honey in a good year' },
-  { fact: 'Bees visit 50,000+ flowers to make 1 lb of honey' },
+  { fact: 'One strong hive can produce 25-35kg of honey in a good year' },
+  { fact: 'Bees visit 50,000+ flowers to make 1kg of honey' },
   { fact: 'Alberta produces 40% of Canada\'s honey - #1 in the country!' }
 ];
 

@@ -13,7 +13,7 @@ const beekeepers = [
     image: '/images/beekeepers/Sarah.png',
     story: 'I started beekeeping when my kids were in grade 3. Now they help me check hives every spring!',
     tip: 'In central Alberta, I always check my hives by May 1st - that\'s when winter bees start dying off and spring bees take over.',
-    funFact: 'My hives produced 120lbs of honey last year - enough for 960 jars!',
+    funFact: 'My hives produced 55kg of honey last year - enough for 960 jars!',
     color: 'bg-amber-400',
     textColor: 'text-black'
   },

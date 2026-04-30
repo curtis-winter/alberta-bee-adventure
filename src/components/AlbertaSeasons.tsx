@@ -96,16 +96,16 @@ const albertaMonths = [
     color: 'bg-red-500',
     textColor: 'text-white'
   },
-  {
-    month: 'October',
-    temp: '6°C / 43°F',
-    description: 'Wrap hives in insulation - Alberta beekeepers use special wraps',
-    activity: 'See: Black tarpaper wraps absorbing sunshine heat',
-    albertaFact: 'Black wraps can raise hive temperature by 10-15°F on sunny winter days',
-    icon: '🧣',
-    color: 'bg-brown-500',
-    textColor: 'text-white'
-  },
+    {
+      month: 'October',
+      temp: '6°C / 43°F',
+      description: 'Wrap hives in insulation - Alberta beekeepers use special wraps',
+      activity: 'See: Black tarpaper wraps absorbing sunshine heat',
+      albertaFact: 'Black wraps can raise hive temperature by 10-15°F on sunny winter days',
+      icon: '🧣',
+      color: 'bg-brown-500',
+      textColor: 'text-black'
+    },
   {
     month: 'November',
     temp: '-3°C / 27°F',

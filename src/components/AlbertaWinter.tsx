@@ -75,11 +75,8 @@ export default function AlbertaWinter({ onNext }: { onNext: () => void }) {
             You completed the <span className="bg-black text-yellow-400 px-4 py-1">Alberta Bee Adventure</span>
           </p>
            
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
-             <LevelBadge icon={<Sun />} label="ENERGY SCOUT" />
-             <LevelBadge icon={<HeartPulse />} label="HEALTH EXPERT" />
-             <LevelBadge icon={<HomeIcon />} label="PROTECTOR" />
-          </div>
+           <div className="grid grid-cols-1 gap-6 mb-12">
+            </div>
            
           <motion.button
             whileHover={{ scale: 1.05, rotate: 3 }}

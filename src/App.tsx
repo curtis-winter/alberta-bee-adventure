@@ -180,30 +180,17 @@ export default function App() {
           </section>
         </main>
 
-      {/* Footer sticky-ish indicator */}
-      <footer className="h-24 bg-green-500 border-t-8 border-black flex items-center justify-between px-6 md:px-12 z-50 sticky bottom-0">
-        <div className="flex gap-4">
-          <button 
-            onClick={() => scrollTo('home')}
-            className="w-12 h-12 bg-white border-4 border-black rounded-full flex items-center justify-center text-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
-          >
-            🏡
-          </button>
-          <div className="hidden sm:flex w-12 h-12 bg-green-400 border-4 border-black rounded-full items-center justify-center text-2xl opacity-50 cursor-not-allowed">⚙️</div>
-          <div className="hidden sm:flex w-12 h-12 bg-green-400 border-4 border-black rounded-full items-center justify-center text-2xl">🏆</div>
-        </div>
-        
-        <div className="flex items-center gap-6 flex-1 max-w-md ml-6 text-white font-black uppercase text-xl">
-           KEEP EXPLORING! ↓
-        </div>
-
-        <div className="bg-white border-4 border-black p-2 rounded-2xl ml-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-           <div className="text-center leading-none">
-             <span className="text-sm font-black uppercase text-stone-500 block">Honey</span>
-             <span className="text-xl font-black text-amber-500">450 <span className="text-[10px] text-stone-900">PTS</span></span>
-           </div>
-        </div>
-      </footer>
+       {/* Footer sticky-ish indicator */}
+       <footer className="h-24 bg-green-500 border-t-8 border-black flex items-center justify-between px-6 md:px-12 z-50 sticky bottom-0">
+         <div className="flex gap-4">
+           <button 
+             onClick={() => scrollTo('home')}
+             className="w-12 h-12 bg-white border-4 border-black rounded-full flex items-center justify-center text-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+           >
+             🏡
+           </button>
+         </div>
+       </footer>
     </div>
   );
 }

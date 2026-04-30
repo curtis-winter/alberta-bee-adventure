@@ -76,22 +76,14 @@ export default function AlbertaStats({ onNext }: AlbertaStatsProps) {
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: idx * 0.1 }}
-                className={`p-6 border-4 border-black rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${source.color} ${source.textColor || 'text-white'}`}
+                className={`p-6 border-4 border-black rounded-2xl shadow-[4px_4px_0px_rgba(0,0,0,1)] ${source.color} ${source.textColor || 'text-white'}`}
               >
                 <div className="flex items-center gap-4">
                   <div className="text-3xl">{source.emoji}</div>
                   <div>
                     <h4 className="text-xl font-black uppercase tracking-tighter">{source.name}</h4>
-                    <p className="text-sm font-bold opacity-80">{source.bloomPeriod} • {source.honeyColor}</p>
+                    <p className="font-bold text-sm opacity-80">{source.bloomPeriod} • {source.honeyColor}</p>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
                 </div>
               </motion.div>
             ))}
@@ -103,7 +95,7 @@ export default function AlbertaStats({ onNext }: AlbertaStatsProps) {
       <div className="text-center mb-8">
         <button
           onClick={() => setShowMath(!showMath)}
-          className="bg-white border-4 border-black font-black uppercase px-8 py-3 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+          className="bg-white border-4 border-black font-black uppercase px-8 py-3 rounded-2xl shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
         >
           {showMath ? 'Hide' : 'Show'} Honey Math! 🧮
         </button>
@@ -116,21 +108,29 @@ export default function AlbertaStats({ onNext }: AlbertaStatsProps) {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
         >
           {albertaHoneyMath.map((item, idx) => (
-            <div key={idx} className="bg-yellow-50 border-4 border-black p-4 rounded-2xl text-center">
+            <div key={idx} className="bg-yellow-50 border-4 border-black p-4 rounded-2xl">
               <p className="font-bold text-sm">{item.fact}</p>
             </div>
           ))}
         </motion.div>
       )}
 
-      <div className="flex justify-center">
+      <div className="mt-12 text-center">
+        <div className="bg-white border-4 border-black p-6 rounded-[3rem] inline-block shadow-[8px_8px_0px_rgba(0,0,0,1)]">
+          <p className="font-black uppercase text-2xl mb-4">Did You Know?</p>
+          <p className="text-lg font-bold">One Alberta honeybee visits <span className="text-amber-500 font-black">5,000+ flowers daily</span> during canola bloom!</p>
+          <p className="text-lg font-bold mt-2">That's like visiting <span className="text-rose-500 font-black">every store in West Edmonton Mall</span> in one day!</p>
+        </div>
+      </div>
+
+      <div className="mt-16 flex justify-center">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={onNext}
-          className="bg-black text-white font-black uppercase tracking-tighter px-12 py-5 rounded-2xl inline-flex items-center gap-3 shadow-[8px_8px_0px_0px_rgba(16,185,129,1)] transition-all"
+          className="bg-black text-white font-black uppercase tracking-tighter px-12 py-5 rounded-2xl inline-flex items-center gap-3 shadow-[8px_8px_0px_rgba(16,185,129,1)] transition-all"
         >
-           Meet the Beekeeper's Year!
+          Meet Alberta Beekeeper's Year!
           <ChevronRight strokeWidth={4} className="w-6 h-6" />
         </motion.button>
       </div>

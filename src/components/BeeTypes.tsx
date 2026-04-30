@@ -37,7 +37,7 @@ const beeTypes = [
   },
   {
     role: 'THE DRONES',
-    title: 'The Helpful Brothers',
+    title: 'The Winged Bachelors',
     emoji: '😴',
     color: 'bg-sky-400',
     image: './images/bee-types/drone.jpg',

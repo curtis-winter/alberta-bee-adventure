@@ -106,7 +106,7 @@ export default function BeeTypes({ onNext }: BeeTypesProps) {
           onClick={onNext}
           className="bg-black text-white font-black uppercase tracking-tighter px-12 py-5 rounded-2xl inline-flex items-center gap-3 shadow-[8px_8px_0px_0px_rgba(251,191,36,1)] transition-all"
         >
-          Build the Hive!
+          Explore Alberta Stats!
           <ChevronRight strokeWidth={4} className="w-6 h-6" />
         </motion.button>
       </div>

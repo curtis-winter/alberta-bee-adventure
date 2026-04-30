@@ -12,7 +12,7 @@ const stages = [
     title: 'THE TINY EGG',
     desc: 'A tiny white egg is laid in a wax cell. It looks like a small speck of dust but it holds a whole life!',
     color: 'bg-stone-100',
-    image: '/images/bee-lifecycle/egg.jpg',
+    image: './images/bee-lifecycle/egg.jpg',
     funFact: 'A Queen lives up to 5 years and spends her whole life laying eggs!'
   },
   {
@@ -20,7 +20,7 @@ const stages = [
     title: 'HUNGRY LARVA',
     desc: 'The egg hatches into a hungry larva. Nurse bees feed worker larvae bee-bread (pollen and nectar). Only queen larvae get Royal Jelly!',
     color: 'bg-emerald-100',
-    image: '/images/bee-lifecycle/larva.jpg',
+    image: './images/bee-lifecycle/larva.jpg',
     funFact: 'Worker larvae grow 1,500 times bigger in just 5 days!'
   },
   {
@@ -28,7 +28,7 @@ const stages = [
     title: 'THE BIG CHANGE',
     desc: 'Inside a wax-capped cell, the bee grows eyes, legs, and wings. This is Metamorphosis.',
     color: 'bg-indigo-100',
-    image: '/images/bee-lifecycle/pupa.jpg',
+    image: './images/bee-lifecycle/pupa.jpg',
     funFact: 'Pupae breathe through tiny tubes called spiracles on their bodies.'
   },
   {
@@ -36,7 +36,7 @@ const stages = [
     title: 'THE WORKER',
     desc: 'A fluffy honeybee chews its way out! It starts working instantly by cleaning its own cell.',
     color: 'bg-amber-100',
-    image: '/images/bee-lifecycle/new-worker.jpg',
+    image: './images/bee-lifecycle/new-worker.jpg',
     funFact: 'Bees fly at 24 kilometers per hour. That is fast for a little bug!'
   }
 ];

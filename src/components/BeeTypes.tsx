@@ -12,7 +12,7 @@ const beeTypes = [
     title: 'The Mother of the Hive',
     emoji: '👑',
     color: 'bg-amber-400',
-    image: '/images/bee-types/queen.jpg',
+    image: './images/bee-types/queen.jpg',
     facts: [
       'Lays up to 2,000 eggs a day!',
       'Can live up to 5 years.',
@@ -26,7 +26,7 @@ const beeTypes = [
     title: 'The Busy Sisters',
     emoji: '💪',
     color: 'bg-rose-400',
-    image: '/images/bee-types/workers.jpg',
+    image: './images/bee-types/workers.jpg',
     facts: [
       'All workers are female!',
       'They do ALL the work: cleaning, nursing, and building.',
@@ -40,7 +40,7 @@ const beeTypes = [
     title: 'The Helpful Brothers',
     emoji: '😴',
     color: 'bg-sky-400',
-    image: '/images/bee-types/drone.jpg',
+    image: './images/bee-types/drone.jpg',
     facts: [
       'Drones are the male bees.',
       'They have extra-large eyes to see the Queen.',

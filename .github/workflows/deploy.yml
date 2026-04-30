@@ -34,9 +34,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Remove .gitkeep
-        run: rm -f dist/.gitkeep
-
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -50,6 +47,8 @@ jobs:
       id-token: write
     environment:
       name: github-pages
+      url: https://curtis-winter.github.io/alberta-bee-adventure
     steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v5

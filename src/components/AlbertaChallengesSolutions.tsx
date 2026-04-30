@@ -8,15 +8,15 @@ interface AlbertaChallengesSolutionsProps {
 
 const challenges = [
   {
-    challenge: 'Alberta\'s Long Winters Mean Bees Eat More Honey',
-    solution: 'Beekeepers leave 80-100lbs of honey per hive (vs 40-60lbs in warmer climates)',
+    challenge: 'Alberta Long Winters Mean Bees Eat More Honey',
+    solution: 'Beekeepers leave 35-45 kg of honey per hive (vs 20-27 kg in warmer climates)',
     icon: '🍯',
     color: 'bg-amber-400',
     why: 'Bees must stay warm for 5-6 months with no fresh nectar',
-    albertaFact: 'That\'s like you eating 200 peanut butter sandwiches every day for half the year!'
+    albertaFact: 'That like you eating 200 peanut butter sandwiches every day for half the year!'
   },
   {
-    challenge: 'Varroa Mites Reproduce Faster in Alberta\'s Long Brood Cycles',
+    challenge: 'Varroa Mites Reproduce Faster in Alberta Long Brood Cycles',
     solution: 'Alberta beekeepers use integrated pest management - screened bottom boards, powdered sugar dusting, and timed treatments',
     icon: '🐛',
     color: 'bg-red-400',
@@ -37,7 +37,7 @@ const challenges = [
     icon: '🌪️',
     color: 'bg-purple-400',
     why: 'Southern Alberta gets warm winds that can melt snow in hours',
-    albertaFact: 'A chinook once raised Calgary\'s temperature from -19°C to +15°C in 1 hour!'
+    albertaFact: 'A chinook once raised Calgary temperature from -19°C to +15°C in 1 hour!'
   },
   {
     challenge: 'Dry Climate Means Less Natural Nectar Flow',
@@ -45,7 +45,7 @@ const challenges = [
     icon: '🏜️',
     color: 'bg-orange-400',
     why: 'Southern Alberta gets only 300-400mm rain/year - bees need extra help',
-    albertaFact: 'Irrigated alfalfa fields in Alberta produce 200+ lbs honey per hive!'
+    albertaFact: 'Irrigated alfalfa fields in Alberta produce 90+ kg honey per hive!'
   }
 ];
 

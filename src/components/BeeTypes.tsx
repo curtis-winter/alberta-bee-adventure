@@ -55,7 +55,7 @@ const beeTypes = [
 
 const livestockNote = {
   title: '🐝 Honey Bees are NOT Native!',
-  content: 'Honey bees are like "tiny flying cows" - they are livestock brought to Alberta by humans! They are not native to North America. Alberta has over 300 species of native bees (like Bumble Bees and Mason Bees) that have lived here for thousands of years. Honey bees are important for making honey, but native bees are the real Alberta natives!',
+  content: 'Honey bees are like "tiny flying cows" - they are livestock brought to Alberta by humans! They are not native to North America. Alberta has over 300 species of native bees (like Bumble Bees and Mason Bees) that have lived here for thousands of years.',
   icon: '🌾'
 };
 

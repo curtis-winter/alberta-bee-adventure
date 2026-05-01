@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Info } from 'lucide-react';
 
 interface BeeTypesProps {
   onNext: () => void;
@@ -31,7 +31,9 @@ const beeTypes = [
       'All workers are female!',
       'They do ALL the work: cleaning, nursing, and building.',
       'They find the best Alberta flowers for nectar.',
-      'A hive can have 50,000 workers!'
+      'A hive can have 50,000 workers!',
+      'They have special "pollen baskets" on their back legs!',
+      'They do the famous Waggle Dance to communicate!'
     ],
     albertaFact: 'Worker bees change jobs as they age - from nurse to builder to forager in just 6 weeks!'
   },
@@ -51,6 +53,12 @@ const beeTypes = [
   }
 ];
 
+const livestockNote = {
+  title: '🐝 Honey Bees are NOT Native!',
+  content: 'Honey bees are like "tiny flying cows" - they are livestock brought to Alberta by humans! They are not native to North America. Alberta has over 300 species of native bees (like Bumble Bees and Mason Bees) that have lived here for thousands of years. Honey bees are important for making honey, but native bees are the real Alberta natives!',
+  icon: '🌾'
+};
+
 export default function BeeTypes({ onNext }: BeeTypesProps) {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
@@ -58,6 +66,21 @@ export default function BeeTypes({ onNext }: BeeTypesProps) {
         <h2 className="text-5xl lg:text-7xl font-black text-black uppercase tracking-tighter mb-4">Meet the Team</h2>
         <p className="text-xl text-sky-900 font-bold bg-sky-200 px-6 py-2 rounded-full inline-block uppercase tracking-tight">Three types of bees, one big family!</p>
       </div>
+
+      {/* Livestock vs Native Callout */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-amber-50 border-4 border-black rounded-3xl p-8 mb-12"
+      >
+        <div className="flex items-start gap-4">
+          <div className="text-5xl">{livestockNote.icon}</div>
+          <div>
+            <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">{livestockNote.title}</h3>
+            <p className="text-lg font-bold text-stone-700">{livestockNote.content}</p>
+          </div>
+        </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         {beeTypes.map((bee) => (

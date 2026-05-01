@@ -111,7 +111,7 @@ const albertaMonths = [
       temp: '-3°C',
       description: 'Hive checks - beekeepers ensure ventilation is correct',
       activity: 'Listen at: Hives should be quiet (cluster = good)',
-      albertaFact: 'The winter cluster stays 30°C at the core - even when outside is -40°C!',
+      albertaFact: 'Bees DON\'T sleep in winter! They huddle together and shiver to stay warm at 35C - even when it\'s -40C outside!',
       icon: '👂',
       color: 'bg-blue-800',
       textColor: 'text-white'

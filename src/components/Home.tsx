@@ -33,7 +33,7 @@ export default function Home({ onStart }: HomeProps) {
             onClick={onStart}
             className="bg-black text-white font-black text-2xl px-12 py-6 rounded-3xl shadow-[8px_8px_0px_0px_rgba(251,191,36,1)] inline-flex items-center gap-4 transition-all uppercase tracking-tight"
           >
-            Start Mission
+            Start Adventure
             <Play className="w-8 h-8 fill-yellow-400 text-yellow-400" />
           </motion.button>
         </motion.div>

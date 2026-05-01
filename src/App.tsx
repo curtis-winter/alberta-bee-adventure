@@ -10,7 +10,7 @@ import {
   Map,
   ChevronRight,
   ArrowUp,
-  Dance,
+  Music2,
   CircleHelp
 } from 'lucide-react';
 import Home from './components/Home';
@@ -57,7 +57,7 @@ export default function App() {
     { id: 'home', label: 'Welcome', icon: HomeIcon, color: 'bg-yellow-400' },
     { id: 'lifecycle', label: 'Bee Life', icon: Bug, color: 'bg-rose-400 text-white' },
     { id: 'types', label: 'Bee Team', icon: Users, color: 'bg-orange-400 text-white' },
-    { id: 'waggle', label: 'Waggle Dance', icon: Dance, color: 'bg-indigo-400 text-white' },
+    { id: 'waggle', label: 'Waggle Dance', icon: Music2, color: 'bg-indigo-400 text-white' },
     { id: 'beeorwasp', label: 'Bee Or Wasp', icon: CircleHelp, color: 'bg-purple-400 text-white' },
     { id: 'map', label: 'Alberta Stats', icon: Map, color: 'bg-emerald-400 text-white' },
     { id: 'flora', label: 'Flowers', icon: Flower2, color: 'bg-pink-400 text-white' },

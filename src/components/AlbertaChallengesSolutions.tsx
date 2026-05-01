@@ -107,10 +107,10 @@ export default function AlbertaChallengesSolutions({ onNext }: AlbertaChallenges
                   <p className="text-lg font-bold">{challenge.solution}</p>
                 </div>
 
-                <div className="bg-yellow-100 border-4 border-black p-6 rounded-2xl">
-                  <p className="font-black uppercase text-sm tracking-widest mb-2">🎉 Alberta Fun Fact:</p>
-                  <p className="text-lg font-bold italic">"{challenge.albertaFact}"</p>
-                </div>
+<div className="bg-yellow-100 border-4 border-black p-6 rounded-2xl text-black">
+                <p className="font-black uppercase text-sm tracking-widest mb-2">🎉 Alberta Fun Fact:</p>
+                <p className="text-lg font-bold italic">"{challenge.albertaFact}"</p>
+              </div>
               </motion.div>
             )}
           </AnimatePresence>

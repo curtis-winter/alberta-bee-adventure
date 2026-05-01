@@ -47,7 +47,7 @@ const beeTypes = [
       'They do not have stingers!',
       'They eat plenty of honey to stay strong.'
     ],
-    albertaFact: 'Alberta drones are larger to generate more heat - crucial for keeping hives warm during -30°C winters!'
+    albertaFact: 'Alberta drones are larger to generate more heat - crucial for keeping hives warm during -30C winters!'
   }
 ];
 
@@ -61,15 +61,15 @@ export default function BeeTypes({ onNext }: BeeTypesProps) {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         {beeTypes.map((bee) => (
-          <motion.div 
+          <motion.div
             key={bee.role}
             whileHover={{ y: -10 }}
             className={`brutalist-card rounded-[2.5rem] overflow-hidden flex flex-col`}
           >
             <div className="h-64 relative group">
-              <img 
-                src={bee.image} 
-                className="w-full h-full object-cover transition-all duration-500" 
+              <img
+                src={bee.image}
+                className="w-full h-full object-cover transition-all duration-500"
                 alt={bee.role}
               />
             </div>
@@ -106,7 +106,7 @@ export default function BeeTypes({ onNext }: BeeTypesProps) {
           onClick={onNext}
           className="bg-black text-white font-black uppercase tracking-tighter px-12 py-5 rounded-2xl inline-flex items-center gap-3 shadow-[8px_8px_0px_0px_rgba(251,191,36,1)] transition-all"
         >
-          Explore Alberta Stats!
+          Learn About Alberta Flowers!
           <ChevronRight strokeWidth={4} className="w-6 h-6" />
         </motion.button>
       </div>

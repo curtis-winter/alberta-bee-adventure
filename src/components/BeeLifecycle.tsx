@@ -123,7 +123,7 @@ className="relative bg-white border-4 border-black border-b-[12px] border-stone-
                     onClick={onNext}
                     className="bg-yellow-400 border-4 border-black text-black font-black uppercase tracking-tighter px-10 py-5 rounded-2xl inline-flex items-center gap-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
                   >
-                    MEET THE TEAM
+                    MEET THE BEE TEAM
                     <ChevronRight strokeWidth={4} className="w-6 h-6" />
                   </motion.button>
                 ) : (

@@ -27,12 +27,19 @@ export type Section = 'home' | 'lifecycle' | 'types' | 'map' | 'seasons' | 'flor
 export default function App() {
   const [activeSection, setActiveSection] = useState<Section>('home');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [key, setKey] = useState(0);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
+
+  const handleReset = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setActiveSection('home');
+    setKey(prev => prev + 1);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -124,7 +131,7 @@ export default function App() {
         scrollTo(sectionIds[prevIndex]);
       } else if (e.key === 'Home') {
         e.preventDefault();
-        scrollTo('home');
+        handleReset();
       } else if (e.key === 'End') {
         e.preventDefault();
         scrollTo('winter');
@@ -151,7 +158,7 @@ export default function App() {
             <motion.div 
               className="flex items-center gap-3 cursor-pointer group shrink-0"
               whileHover={{ scale: 1.02 }}
-              onClick={() => scrollTo('home')}
+onClick={() => handleReset()}
               role="button"
               tabIndex={0}
               aria-label="Return to home"
@@ -249,7 +256,7 @@ export default function App() {
 
 <section id="winter" className="w-full min-h-screen flex items-center justify-center py-24">
             <ErrorBoundary>
-              <AlbertaWinter onNext={() => scrollTo('home')} />
+              <AlbertaWinter onNext={handleReset} />
             </ErrorBoundary>
           </section>
         </main>
@@ -257,7 +264,7 @@ export default function App() {
         {/* Scroll to top button */}
         {showScrollTop && (
           <button
-            onClick={() => scrollTo('home')}
+            onClick={handleReset}
             aria-label="Scroll to top"
             className="fixed left-4 top-1/2 -translate-y-1/2 z-[70] w-12 h-12 bg-black border-4 border-white rounded-full flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:bg-stone-800 transition-colors"
           >

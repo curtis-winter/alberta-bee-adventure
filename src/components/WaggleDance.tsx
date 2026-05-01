@@ -47,6 +47,19 @@ export default function WaggleDance({ onNext }: WaggleDanceProps) {
         ))}
       </div>
 
+      <div className="mb-12">
+        <div className="relative w-full max-w-2xl mx-auto border-4 border-black rounded-2xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <iframe
+            className="w-full aspect-video"
+            src="https://www.youtube.com/embed/12Q8FfyLLso?start=41&end=142&rel=0"
+            title="Waggle Dance Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+        <p className="text-center text-sm font-bold text-stone-600 mt-3">Watch the waggle dance in action (41s - 2:22)</p>
+      </div>
+
       <div className="bg-sky-100 border-4 border-black rounded-3xl p-8 mb-12">
         <h4 className="text-2xl font-black uppercase tracking-tighter mb-4">🎓 Science Connection!</h4>
         <p className="text-lg font-bold text-stone-700">

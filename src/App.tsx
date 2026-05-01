@@ -152,57 +152,61 @@ export default function App() {
         <div className="absolute bottom-24 right-1/4 text-6xl">🌸</div>
       </div>
 
-        {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-[60] bg-white border-b-8 border-black pb-2">
-          <div className="max-w-7xl mx-auto px-6 h-28 flex items-center gap-4">
-            <motion.div 
-              className="flex items-center gap-3 cursor-pointer group shrink-0"
-              whileHover={{ scale: 1.02 }}
-onClick={() => handleReset()}
-              role="button"
-              tabIndex={0}
-              aria-label="Return to home"
-            >
-              <div className="bg-yellow-400 p-2 border-4 border-black group-hover:rotate-12 transition-transform">
-                <span className="text-3xl block leading-none" role="img" aria-label="bee">🐝</span>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-black text-3xl uppercase tracking-tighter text-amber-500">
-                  ALBERTA <span className="text-black">BEES!</span>
-                </span>
-                <span className="text-xs font-bold text-sky-800 uppercase tracking-widest px-1.5 py-0.5 bg-sky-200 rounded-full w-fit mt-0.5">
-                  Lab Adventure 🇨🇦
-                </span>
-              </div>
-            </motion.div>
+{/* Navigation */}
+        <nav className="fixed top-0 left-0 right-0 z-[60] bg-white border-b-8 border-black">
+          <div className="max-w-7xl mx-auto px-6 py-4">
+            <div className="flex flex-col gap-4">
+              {/* Logo row */}
+              <motion.div 
+                className="flex items-center gap-3 cursor-pointer group shrink-0"
+                whileHover={{ scale: 1.02 }}
+                onClick={() => handleReset()}
+                role="button"
+                tabIndex={0}
+                aria-label="Return to home"
+              >
+                <div className="bg-yellow-400 p-2 border-4 border-black group-hover:rotate-12 transition-transform">
+                  <span className="text-3xl block leading-none" role="img" aria-label="bee">🐝</span>
+                </div>
+                <div className="flex flex-col leading-none">
+                  <span className="font-black text-3xl uppercase tracking-tighter text-amber-500">
+                    ALBERTA <span className="text-black">BEES!</span>
+                  </span>
+                  <span className="text-xs font-bold text-sky-800 uppercase tracking-widest px-1.5 py-0.5 bg-sky-200 rounded-full w-fit mt-0.5">
+                    Lab Adventure 🇨🇦
+                  </span>
+                </div>
+              </motion.div>
 
-            <div className="flex-1 overflow-x-auto nav-scroll-container [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <div className="flex gap-2 min-w-max">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollTo(item.id)}
-                    aria-label={`Navigate to ${item.label} section`}
-                    aria-current={activeSection === item.id ? 'true' : undefined}
-                    className={`flex items-center gap-2 px-4 py-2 border-4 border-black transition-all text-sm font-black uppercase tracking-tight shrink-0 ${
-                      activeSection === item.id 
-                        ? `${item.color} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] translate-x-[-2px] translate-y-[-2px]` 
-                        : 'bg-white hover:bg-stone-50 text-stone-900 shadow-none grayscale opacity-60'
-                    }`}
-                  >
-                    <item.icon className="w-4 h-4" aria-hidden="true" />
-                    <span className="hidden sm:block">{item.label}</span>
-                  </button>
-                ))}
+              {/* Navigation tabs row - full width */}
+              <div className="overflow-x-auto nav-scroll-container [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <div className="flex gap-2 min-w-max">
+                  {navItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollTo(item.id)}
+                      aria-label={`Navigate to ${item.label} section`}
+                      aria-current={activeSection === item.id ? 'true' : undefined}
+                      className={`flex items-center gap-2 px-4 py-2 border-4 border-black transition-all text-sm font-black uppercase tracking-tight shrink-0 ${
+                        activeSection === item.id 
+                          ? `${item.color} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] translate-x-[-2px] translate-y-[-2px]` 
+                          : 'bg-white hover:bg-stone-50 text-stone-900 shadow-none grayscale opacity-60'
+                      }`}
+                    >
+                      <item.icon className="w-4 h-4" aria-hidden="true" />
+                      <span className="hidden sm:block">{item.label}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        {/* Progress bar under nav */}
-        <motion.div
-          className="h-1 bg-black origin-left mt-2"
-          style={{ scaleX }}
-        />
-       </nav>
+          {/* Progress bar under nav */}
+          <motion.div
+            className="h-1 bg-black origin-left"
+            style={{ scaleX }}
+          />
+        </nav>
 
         {/* Main Content Area */}
         <main className="pt-32 min-h-screen relative z-10 flex flex-col items-center">

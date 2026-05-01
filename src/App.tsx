@@ -9,7 +9,9 @@ import {
   Users,
   Map,
   ChevronRight,
-  ArrowUp
+  ArrowUp,
+  Dance,
+  CircleHelp
 } from 'lucide-react';
 import Home from './components/Home';
 import BeeLifecycle from './components/BeeLifecycle';
@@ -55,8 +57,8 @@ export default function App() {
     { id: 'home', label: 'Welcome', icon: HomeIcon, color: 'bg-yellow-400' },
     { id: 'lifecycle', label: 'Bee Life', icon: Bug, color: 'bg-rose-400 text-white' },
     { id: 'types', label: 'Bee Team', icon: Users, color: 'bg-orange-400 text-white' },
-    { id: 'waggle', label: 'Waggle Dance', icon: Info, color: 'bg-indigo-400 text-white' },
-    { id: 'beeorwasp', label: 'Bee Or Wasp', icon: Info, color: 'bg-purple-400 text-white' },
+    { id: 'waggle', label: 'Waggle Dance', icon: Dance, color: 'bg-indigo-400 text-white' },
+    { id: 'beeorwasp', label: 'Bee Or Wasp', icon: CircleHelp, color: 'bg-purple-400 text-white' },
     { id: 'map', label: 'Alberta Stats', icon: Map, color: 'bg-emerald-400 text-white' },
     { id: 'flora', label: 'Flowers', icon: Flower2, color: 'bg-pink-400 text-white' },
     { id: 'seasons', label: 'Seasons', icon: Snowflake, color: 'bg-blue-400 text-white' },

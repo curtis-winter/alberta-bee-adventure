@@ -90,10 +90,6 @@ export default function BeeTypes({ onNext }: BeeTypesProps) {
                   </div>
                 ))}
               </div>
-
-              <div className={`mt-8 p-4 rounded-2xl border-4 border-black ${bee.color} text-white font-black uppercase tracking-tighter text-center italic shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
-                TEAM {bee.role.split(' ')[1]}!
-              </div>
             </div>
           </motion.div>
         ))}

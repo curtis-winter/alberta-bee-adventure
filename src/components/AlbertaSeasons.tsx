@@ -172,7 +172,7 @@ export default function AlbertaSeasons({ onNext }: AlbertaSeasonsProps) {
           onClick={onNext}
           className="bg-black text-white font-black text-xl px-10 py-5 border-4 border-black rounded-2xl shadow-[6px_6px_0px_0px_rgba(251,191,36,1)] inline-flex items-center gap-3"
         >
-          Explore Alberta Flowers!
+          Meet Alberta Beekeepers!
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>

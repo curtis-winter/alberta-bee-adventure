@@ -7,22 +7,7 @@ interface AlbertaStatsProps {
   onNext: () => void;
 }
 
-const honeyFacts = [
-  { emoji: '🏙️', title: '300,000+ HIVES', desc: 'Across Alberta prairies' },
-  { emoji: '🍯', title: '18 MILLION KG', desc: 'Honey produced yearly' },
-  { emoji: '🏭', title: "40% OF CANADA'S", desc: 'Honey comes from Alberta!' },
-  { emoji: '💰', title: '$1.2 BILLION', desc: 'Pollination services value' }
-];
-
-const honeyMathCards = albertaHoneyMath.map(item => ({
-  emoji: '🐝',
-  title: item.fact.split(' ')[0] + ' ' + item.fact.split(' ')[1] || 'BEE FACT',
-  desc: item.fact
-}));
-
 export default function AlbertaStats({ onNext }: AlbertaStatsProps) {
-  const allCards = [...honeyFacts, ...honeyMathCards];
-
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
       <div className="text-center mb-12">
@@ -32,7 +17,7 @@ export default function AlbertaStats({ onNext }: AlbertaStatsProps) {
 
       {/* All Facts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        {allCards.map((fact, idx) => (
+        {albertaHoneyMath.map((fact, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, y: 20 }}

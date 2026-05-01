@@ -224,7 +224,7 @@ export default function App() {
 
 <section id="types" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
             <ErrorBoundary key={key}>
-              <BeeTypes onNext={() => scrollTo('flora')} />
+              <BeeTypes onNext={() => scrollTo('map')} />
             </ErrorBoundary>
           </section>
 
@@ -258,38 +258,8 @@ export default function App() {
             </ErrorBoundary>
           </section>
 
-          <section id="winter" className="w-full min-h-screen flex items-center justify-center py-24">
-            <ErrorBoundary key={key}>
-              <AlbertaWinter onNext={handleReset} />
-            </ErrorBoundary>
-          </section>
-
-          <section id="flora" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <ErrorBoundary>
-              <AlbertaFlora onNext={() => scrollTo('seasons')} />
-            </ErrorBoundary>
-          </section>
-
-          <section id="seasons" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-            <ErrorBoundary>
-              <AlbertaSeasons onNext={() => scrollTo('beekeepers')} />
-            </ErrorBoundary>
-          </section>
-
-          <section id="beekeepers" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-            <ErrorBoundary>
-              <AlbertaBeekeeperProfiles onNext={() => scrollTo('challenges')} />
-            </ErrorBoundary>
-          </section>
-
-          <section id="challenges" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <ErrorBoundary>
-              <AlbertaChallengesSolutions onNext={() => scrollTo('winter')} />
-            </ErrorBoundary>
-          </section>
-
 <section id="winter" className="w-full min-h-screen flex items-center justify-center py-24">
-            <ErrorBoundary>
+            <ErrorBoundary key={key}>
               <AlbertaWinter onNext={handleReset} />
             </ErrorBoundary>
           </section>

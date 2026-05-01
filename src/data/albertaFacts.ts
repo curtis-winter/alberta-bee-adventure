@@ -85,7 +85,6 @@ export const albertaHoneyMath = [
   { emoji: '🥄', title: 'LIFETIME HONEY', desc: 'One bee makes 1/12 teaspoon in her entire life' },
   { emoji: '🌍', title: 'EARTH TRIP', desc: 'Bees fly 90,000 km to make 1 kg of honey' },
   { emoji: '🏭', title: 'ALBERTA HIVES', desc: '300,000 hives produce 18 million kg yearly' },
-  { emoji: '🏊', title: 'OLYMIC POOLS', desc: 'Enough honey to fill 100 Olympic swimming pools!' },
   { emoji: '💰', title: 'POLLINATION VALUE', desc: 'One colony pollinates $300+ of canola seed' },
   { emoji: '✈️', title: 'DAILY FLIGHT', desc: 'Worker bees fly up to 80 km per day for nectar' },
   { emoji: '🌺', title: 'FLOWER VISITS', desc: 'Bees visit 50,000+ flowers to make 1 kg of honey' },

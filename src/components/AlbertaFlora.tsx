@@ -200,14 +200,6 @@ export default function AlbertaFlora({ onNext }: AlbertaFloraProps) {
         )}
       </AnimatePresence>
 
-      <div className="mt-12 text-center">
-        <div className="bg-white border-4 border-black p-6 rounded-[3rem] inline-block shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <p className="font-black uppercase text-2xl mb-4">Did You Know?</p>
-          <p className="text-lg font-bold">Alberta bees collect nectar from <span className="text-amber-500 font-black">5,000+ flowers daily</span> during canola bloom!</p>
-          <p className="text-lg font-bold mt-2">That's like visiting <span className="text-rose-500 font-black">every store in West Edmonton Mall</span> in one day!</p>
-        </div>
-      </div>
-
       <div className="mt-16 flex justify-center">
         <motion.button
           whileHover={{ scale: 1.05 }}

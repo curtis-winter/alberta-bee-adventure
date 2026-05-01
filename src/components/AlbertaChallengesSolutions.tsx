@@ -81,8 +81,8 @@ export default function AlbertaChallengesSolutions({ onNext }: AlbertaChallenges
               <h3 className="text-3xl lg:text-4xl font-black uppercase tracking-tighter mb-4">Challenge #{currentChallenge + 1}</h3>
               <p className="text-xl lg:text-2xl font-bold mb-4">{challenge.challenge}</p>
               <div className="bg-black/20 border-2 border-black/30 p-4 rounded-2xl">
-                <p className="font-bold text-sm uppercase tracking-widest mb-2">Why This Happens:</p>
-                <p className="text-lg italic">"{challenge.why}"</p>
+                <p className="font-black text-sm uppercase tracking-widest mb-2 text-white">Why This Happens:</p>
+                <p className="text-lg italic text-white">"{challenge.why}"</p>
               </div>
             </div>
           </div>

@@ -14,6 +14,7 @@ import {
 import Home from './components/Home';
 import BeeLifecycle from './components/BeeLifecycle';
 import BeeTypes from './components/BeeTypes';
+import WaggleDance from './components/WaggleDance';
 import BeeOrWasp from './components/BeeOrWasp';
 import AlbertaStats from './components/AlbertaStats';
 import AlbertaSeasons from './components/AlbertaSeasons';
@@ -23,7 +24,7 @@ import AlbertaChallengesSolutions from './components/AlbertaChallengesSolutions'
 import AlbertaWinter from './components/AlbertaWinter';
 import ErrorBoundary from './components/ErrorBoundary';
 
-export type Section = 'home' | 'lifecycle' | 'types' | 'beeorwasp' | 'map' | 'flora' | 'seasons' | 'beekeepers' | 'challenges' | 'winter';
+export type Section = 'home' | 'lifecycle' | 'types' | 'waggle' | 'beeorwasp' | 'map' | 'flora' | 'seasons' | 'beekeepers' | 'challenges' | 'winter';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<Section>('home');
@@ -54,6 +55,7 @@ export default function App() {
     { id: 'home', label: 'Welcome', icon: HomeIcon, color: 'bg-yellow-400' },
     { id: 'lifecycle', label: 'Bee Life', icon: Bug, color: 'bg-rose-400 text-white' },
     { id: 'types', label: 'Bee Team', icon: Users, color: 'bg-orange-400 text-white' },
+    { id: 'waggle', label: 'Waggle Dance', icon: Info, color: 'bg-indigo-400 text-white' },
     { id: 'beeorwasp', label: 'Bee Or Wasp', icon: Info, color: 'bg-purple-400 text-white' },
     { id: 'map', label: 'Alberta Stats', icon: Map, color: 'bg-emerald-400 text-white' },
     { id: 'flora', label: 'Flowers', icon: Flower2, color: 'bg-pink-400 text-white' },
@@ -226,11 +228,17 @@ export default function App() {
 
 <section id="types" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
             <ErrorBoundary key={key}>
-              <BeeTypes onNext={() => scrollTo('beeorwasp')} />
+              <BeeTypes onNext={() => scrollTo('waggle')} />
             </ErrorBoundary>
           </section>
 
-          <section id="beeorwasp" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
+          <section id="waggle" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
+            <ErrorBoundary key={key}>
+              <WaggleDance onNext={() => scrollTo('beeorwasp')} />
+            </ErrorBoundary>
+          </section>
+
+          <section id="beeorwasp" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
             <ErrorBoundary key={key}>
               <BeeOrWasp onNext={() => scrollTo('map')} />
             </ErrorBoundary>

@@ -19,7 +19,7 @@ export default function Home({ onStart }: HomeProps) {
         >
           <div className="inline-flex items-center gap-2 px-6 py-2 border-4 border-black bg-sky-200 text-sky-900 text-sm font-black uppercase tracking-widest mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <MapPin className="w-5 h-5 text-rose-500" />
-            <span>Alberta, Canada</span>
+            <span>Indus, Alberta, Canada</span>
           </div>
 
           <h1 className="text-6xl md:text-8xl font-black text-black uppercase tracking-tighter leading-[0.9] mb-10">

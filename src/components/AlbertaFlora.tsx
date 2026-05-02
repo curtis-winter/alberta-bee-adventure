@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, X } from 'lucide-react';
 
@@ -148,13 +148,16 @@ export default function AlbertaFlora({ onNext }: AlbertaFloraProps) {
       {/* Plant Details Modal */}
       <AnimatePresence>
         {selectedPlantData && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedPlant(null)}
-          >
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedPlant(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedPlantData.name} details`}
+        >
 <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -164,10 +167,11 @@ export default function AlbertaFlora({ onNext }: AlbertaFloraProps) {
             >
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-2xl font-black uppercase tracking-tighter">{selectedPlantData.name}</h3>
-                <button
-                  onClick={() => setSelectedPlant(null)}
-                  className="text-2xl font-black hover:text-stone-500"
-                >
+        <button
+          onClick={() => setSelectedPlant(null)}
+          className="text-2xl font-black hover:text-stone-500"
+          aria-label="Close plant details"
+        >
                   <X className="w-6 h-6" />
                 </button>
               </div>

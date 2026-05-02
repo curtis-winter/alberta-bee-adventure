@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight, Quote } from 'lucide-react';
 
@@ -82,19 +82,21 @@ export default function AlbertaBeekeeperProfiles({ onNext }: AlbertaBeekeeperPro
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Beekeeper Image */}
           <div className="bg-white/20 p-8 flex items-center justify-center">
-            <div className="w-48 h-48 bg-white/30 border-4 border-black rounded-2xl overflow-hidden">
-              <img 
-                src={keeper.image} 
-                alt={keeper.name}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
-              {/* Fallback emoji if image fails to load */}
-              <div className="w-full h-full hidden items-center justify-center text-8xl">
-                🐝
-              </div>
+        <div className="w-48 h-48 bg-white/30 border-4 border-black rounded-2xl overflow-hidden flex items-center justify-center">
+          <img
+            src={keeper.image}
+            alt={keeper.name}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              const fallback = target.nextElementSibling as HTMLElement;
+              if (fallback) fallback.style.display = 'flex';
+            }}
+          />
+          <div className="w-full h-full items-center justify-center text-8xl" style={{ display: 'none' }}>
+            🐝
+          </div>
             </div>
           </div>
 

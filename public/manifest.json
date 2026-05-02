@@ -2,7 +2,7 @@
   "name": "Alberta Bee Adventure",
   "short_name": "Alberta Bees",
   "description": "Learn about beekeeping in Alberta, Canada",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#f0f9ff",
   "theme_color": "#fbbf24"

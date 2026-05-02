@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Snowflake, ThermometerSnowflake, ShieldCheck, Home as HomeIcon, Sun, HeartPulse, RotateCcw, Bug, ChevronRight } from 'lucide-react';
+import { Snowflake, ThermometerSnowflake, ShieldCheck, RotateCcw, Bug } from 'lucide-react';
 import { albertaWinterTips } from '../data/albertaFacts';
 
-export default function AlbertaWinter({ onNext }: { onNext: () => void }) {
+interface AlbertaWinterProps {
+  onNext: () => void;
+}
+
+export default function AlbertaWinter({ onNext }: AlbertaWinterProps) {
   const [showTips, setShowTips] = useState(false);
 
   return (
@@ -75,13 +79,10 @@ export default function AlbertaWinter({ onNext }: { onNext: () => void }) {
             You completed the <span className="bg-black text-yellow-400 px-4 py-1">Alberta Bee Adventure</span>
           </p>
            
-           <div className="grid grid-cols-1 gap-6 mb-12">
-            </div>
-           
-          <motion.button
+  <motion.button
             whileHover={{ scale: 1.05, rotate: 3 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={onNext}
             className="bg-black text-white font-black uppercase tracking-tight py-5 px-12 rounded-2xl inline-flex items-center gap-3 text-xl shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)] transition-all"
           >
             Play Again!
@@ -92,16 +93,7 @@ export default function AlbertaWinter({ onNext }: { onNext: () => void }) {
         {/* Decorative Background Elements */}
         <div className="absolute top-10 left-10 text-black/10 rotate-12"><Bug size={120} /></div>
         <div className="absolute bottom-10 right-10 text-black/10 -rotate-12"><Snowflake size={160} /></div>
-      </div>
-    </div>
-  );
-}
-
-function LevelBadge({ icon, label }: any) {
-  return (
-    <div className="bg-white border-4 border-black p-4 rounded-3xl font-black uppercase tracking-tighter flex items-center justify-center gap-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-       {icon}
-       <span className="text-xs">{label}</span>
-    </div>
-  );
+  </div>
+</div>
+);
 }

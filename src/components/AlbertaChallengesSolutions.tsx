@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronRight, Bug, ThermometerSnowflake, Wind, Droplets } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 interface AlbertaChallengesSolutionsProps {
   onNext: () => void;

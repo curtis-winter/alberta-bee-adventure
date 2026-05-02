@@ -81,10 +81,9 @@ className="relative bg-white border-4 border-black border-b-[12px] border-stone-
               src={stages[index].image} 
               className="w-full h-full object-cover transition-all duration-500" 
               alt={stages[index].title}
-              referrerPolicy="no-referrer"
-             />
-              {/* Removed mix-blend-multiply tint for accuracy */}
-          </div>
+        referrerPolicy="no-referrer"
+        />
+      </div>
 
           {/* Text Side */}
           <div className="lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
@@ -138,18 +137,6 @@ className="relative bg-white border-4 border-black border-b-[12px] border-stone-
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function RoleCard({ emoji, title, desc, color }: any) {
-  return (
-    <div className={`${color} p-6 border-4 border-black border-b-8 border-stone-800 rounded-3xl`}>
-      <div className="bg-white border-4 border-black w-12 h-12 flex items-center justify-center rounded-2xl text-2xl mb-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-        {emoji}
-      </div>
-      <h4 className="font-black uppercase tracking-tighter text-2xl mb-2 text-white drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">{title}</h4>
-      <p className="text-black font-bold text-sm leading-tight opacity-90">{desc}</p>
     </div>
   );
 }

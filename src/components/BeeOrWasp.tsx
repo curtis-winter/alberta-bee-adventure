@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight, Check, X } from 'lucide-react';
 
@@ -31,7 +30,7 @@ export default function BeeOrWasp({ onNext }: BeeOrWaspProps) {
 
       <div className="overflow-x-auto mb-12">
         <div className="border-4 border-black rounded-2xl overflow-hidden">
-          <table className="w-full">
+          <table className="w-full" aria-label="Bee versus Wasp comparison">
             <thead className="bg-black text-white">
               <tr>
                 <th className="p-4 text-left text-xl font-black uppercase">Feature</th>

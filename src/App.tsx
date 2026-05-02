@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
-import { 
-  Bug, 
-  Home as HomeIcon, 
-  Flower2, 
-  Snowflake, 
-  Info,
+import {
+  Bug,
+  Home as HomeIcon,
+  Flower2,
+  Snowflake,
   Users,
   Map,
-  ChevronRight,
   ArrowUp,
   Music2,
   CircleHelp
@@ -163,14 +161,15 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex flex-col gap-4">
               {/* Logo row */}
-              <motion.div 
-                className="flex items-center gap-3 cursor-pointer group shrink-0"
-                whileHover={{ scale: 1.02 }}
-                onClick={() => handleReset()}
-                role="button"
-                tabIndex={0}
-                aria-label="Return to home"
-              >
+        <motion.div
+          className="flex items-center gap-3 cursor-pointer group shrink-0"
+          whileHover={{ scale: 1.02 }}
+          onClick={() => handleReset()}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleReset(); } }}
+          role="button"
+          tabIndex={0}
+          aria-label="Return to home"
+        >
                 <div className="bg-yellow-400 p-2 border-4 border-black group-hover:rotate-12 transition-transform">
                   <span className="text-3xl block leading-none" role="img" aria-label="bee">🐝</span>
                 </div>

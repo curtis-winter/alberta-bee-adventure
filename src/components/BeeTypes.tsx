@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { ChevronRight, Info } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 interface BeeTypesProps {
   onNext: () => void;

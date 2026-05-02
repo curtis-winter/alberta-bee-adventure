@@ -36,11 +36,11 @@ export default function BeeOrWasp({ onNext }: BeeOrWaspProps) {
               <tr>
                 <th className="p-4 text-left text-xl font-black uppercase">Feature</th>
                 <th className="p-4 text-center text-xl font-black uppercase bg-yellow-400 text-black">
-                  <img src="/images/bee-or-wasp/Bee.png" alt="Honey Bee" className="w-48 h-32 object-cover rounded-lg mb-2 mx-auto" />
+                  <img src="./images/bee-or-wasp/Bee.png" alt="Honey Bee" className="w-48 h-32 object-cover rounded-lg mb-2 mx-auto" />
                   <div>Honey Bee</div>
                 </th>
                 <th className="p-4 text-center text-xl font-black uppercase bg-rose-400 text-white">
-                  <img src="/images/bee-or-wasp/wasp.png" alt="Wasp" className="w-48 h-32 object-cover rounded-lg mb-2 mx-auto" />
+                  <img src="./images/bee-or-wasp/wasp.png" alt="Wasp" className="w-48 h-32 object-cover rounded-lg mb-2 mx-auto" />
                   <div>Wasp</div>
                 </th>
               </tr>

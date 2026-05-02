@@ -30,28 +30,36 @@ export default function BeeOrWasp({ onNext }: BeeOrWaspProps) {
       </div>
 
       <div className="overflow-x-auto mb-12">
-        <table className="w-full border-4 border-black rounded-2xl overflow-hidden">
-          <thead className="bg-black text-white">
-            <tr>
-              <th className="p-4 text-left text-xl font-black uppercase">Feature</th>
-              <th className="p-4 text-left text-xl font-black uppercase bg-yellow-400 text-black">🐝 Honey Bee</th>
-              <th className="p-4 text-left text-xl font-black uppercase bg-rose-400 text-white">🪐 Wasp</th>
-            </tr>
-          </thead>
+        <div className="border-4 border-black rounded-2xl overflow-hidden">
+          <table className="w-full">
+            <thead className="bg-black text-white">
+              <tr>
+                <th className="p-4 text-left text-xl font-black uppercase">Feature</th>
+                <th className="p-4 text-center text-xl font-black uppercase bg-yellow-400 text-black">
+                  <img src="/images/bee-or-wasp/Bee.png" alt="Honey Bee" className="w-48 h-32 object-cover rounded-lg mb-2 mx-auto" />
+                  <div>Honey Bee</div>
+                </th>
+                <th className="p-4 text-center text-xl font-black uppercase bg-rose-400 text-white">
+                  <img src="/images/bee-or-wasp/wasp.png" alt="Wasp" className="w-48 h-32 object-cover rounded-lg mb-2 mx-auto" />
+                  <div>Wasp</div>
+                </th>
+              </tr>
+            </thead>
           <tbody>
             {beeVsWasp.map((row, idx) => (
               <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-stone-50'}>
-                <td className="p-4 font-black uppercase border-b-4 border-black">{row.feature}</td>
-                <td className="p-4 font-bold border-b-4 border-black bg-yellow-50">
+                <td className="p-4 font-black uppercase border-b-2 border-black">{row.feature}</td>
+                <td className="p-4 font-bold border-b-2 border-black bg-yellow-50">
                   <span className="mr-2">{row.beeIcon}</span>{row.bee}
                 </td>
-                <td className="p-4 font-bold border-b-4 border-black bg-rose-50">
+                <td className="p-4 font-bold border-b-2 border-black bg-rose-50">
                   <span className="mr-2">{row.waspIcon}</span>{row.wasp}
                 </td>
               </tr>
             ))}
           </tbody>
-        </table>
+          </table>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">

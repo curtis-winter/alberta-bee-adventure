@@ -31,7 +31,7 @@ export type Section = 'home' | 'lifecycle' | 'types' | 'waggle' | 'beeorwasp' | 
 export default function App() {
   const [activeSection, setActiveSection] = useState<Section>('home');
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [key, setKey] = useState(0);
+  const [remountKey, setRemountKey] = useState(0);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -42,7 +42,7 @@ export default function App() {
   const handleReset = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setActiveSection('home');
-    setKey(prev => prev + 1);
+    setRemountKey(prev => prev + 1);
   };
 
   useEffect(() => {
@@ -217,67 +217,67 @@ export default function App() {
         {/* Main Content Area */}
         <main className="pt-32 min-h-screen relative z-10 flex flex-col items-center">
           <section id="home" className="w-full min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 border-b-8 border-black/5">
-            <ErrorBoundary>
+            <ErrorBoundary remountKey={remountKey}>
               <Home onStart={() => scrollTo('lifecycle')} />
             </ErrorBoundary>
           </section>
           
           <section id="lifecycle" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <ErrorBoundary key={key}>
+            <ErrorBoundary remountKey={remountKey}>
               <BeeLifecycle onNext={() => scrollTo('types')} />
             </ErrorBoundary>
           </section>
 
 <section id="types" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-            <ErrorBoundary key={key}>
+            <ErrorBoundary remountKey={remountKey}>
               <BeeTypes onNext={() => scrollTo('waggle')} />
             </ErrorBoundary>
           </section>
 
           <section id="waggle" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <ErrorBoundary key={key}>
+            <ErrorBoundary remountKey={remountKey}>
               <WaggleDance onNext={() => scrollTo('beeorwasp')} />
             </ErrorBoundary>
           </section>
 
           <section id="beeorwasp" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-            <ErrorBoundary key={key}>
+            <ErrorBoundary remountKey={remountKey}>
               <BeeOrWasp onNext={() => scrollTo('map')} />
             </ErrorBoundary>
           </section>
 
           <section id="map" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <ErrorBoundary key={key}>
+            <ErrorBoundary remountKey={remountKey}>
               <AlbertaStats onNext={() => scrollTo('flora')} />
             </ErrorBoundary>
           </section>
 
           <section id="flora" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <ErrorBoundary key={key}>
+            <ErrorBoundary remountKey={remountKey}>
               <AlbertaFlora onNext={() => scrollTo('seasons')} />
             </ErrorBoundary>
           </section>
 
           <section id="seasons" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-            <ErrorBoundary key={key}>
+            <ErrorBoundary remountKey={remountKey}>
               <AlbertaSeasons onNext={() => scrollTo('beekeepers')} />
             </ErrorBoundary>
           </section>
 
           <section id="beekeepers" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-            <ErrorBoundary key={key}>
+            <ErrorBoundary remountKey={remountKey}>
               <AlbertaBeekeeperProfiles onNext={() => scrollTo('challenges')} />
             </ErrorBoundary>
           </section>
 
           <section id="challenges" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
-            <ErrorBoundary key={key}>
+            <ErrorBoundary remountKey={remountKey}>
               <AlbertaChallengesSolutions onNext={() => scrollTo('winter')} />
             </ErrorBoundary>
           </section>
 
 <section id="winter" className="w-full min-h-screen flex items-center justify-center py-24">
-            <ErrorBoundary key={key}>
+            <ErrorBoundary remountKey={remountKey}>
               <AlbertaWinter onNext={handleReset} />
             </ErrorBoundary>
           </section>

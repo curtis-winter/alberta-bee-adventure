@@ -1,10 +1,18 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState, ReactNode, useEffect } from 'react';
 
 interface Props {
   children: ReactNode;
+  remountKey?: number;
 }
 
-export default function ErrorBoundary({ children }: Props) {
+export default function ErrorBoundary({ children, remountKey }: Props) {
+  const [key, setKey] = useState(0);
+
+  useEffect(() => {
+    if (remountKey !== undefined) {
+      setKey(remountKey);
+    }
+  }, [remountKey]);
   const [hasError, setHasError] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
@@ -26,5 +34,5 @@ export default function ErrorBoundary({ children }: Props) {
     );
   }
 
-  return children;
+  return <React.Fragment key={key}>{children}</React.Fragment>;
 }

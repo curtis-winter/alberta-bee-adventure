@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 interface AlbertaHoneyMapProps {}
 
-const SVG_W = 330;
-const SVG_H = 330;
+const SVG_W = 1000;
+const SVG_H = 1000;
 
 const ALBERTA_BOUNDS = {
   minLat: 49.0,
@@ -17,6 +17,14 @@ function projectCoordinate(lon: number, lat: number): [number, number] {
   const y = SVG_H - ((lat - ALBERTA_BOUNDS.minLat) / (ALBERTA_BOUNDS.maxLat - ALBERTA_BOUNDS.minLat)) * SVG_H;
   return [x, y];
 }
+
+const LOCATIONS = [
+  { name: 'PEACE RIVER', lon: -117.29, lat: 56.22 },
+  { name: 'INDUS', lon: -113.77, lat: 50.91 },
+  { name: 'RED DEER', lon: -113.84, lat: 52.28 },
+  { name: 'EDMONTON', lon: -113.48, lat: 53.54 },
+  { name: 'LETHBRIDGE', lon: -112.86, lat: 49.69 },
+];
 
 const ALBERTA_OUTLINE: [number, number][] = [
   [-120, 53.8],
@@ -2469,7 +2477,7 @@ const honeyRegions = [
 
 export default function AlbertaHoneyMap({}: AlbertaHoneyMapProps) {
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
-  const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState<string>('south');
 
   const outlinePoints = ALBERTA_OUTLINE.map(([lon, lat]) => {
     const [x, y] = projectCoordinate(lon, lat);
@@ -2488,7 +2496,7 @@ export default function AlbertaHoneyMap({}: AlbertaHoneyMapProps) {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4">
+    <div className="w-full p-4">
       <div className="text-center mb-6">
         <h3 className="text-3xl lg:text-4xl font-black uppercase tracking-tighter mb-2">
           Alberta Honey Production
@@ -2498,11 +2506,11 @@ export default function AlbertaHoneyMap({}: AlbertaHoneyMapProps) {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-white p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="grid md:grid-cols-2 gap-6 items-stretch">
+        <div className="flex">
           <svg
             viewBox={`0 0 ${SVG_W} ${SVG_H}`}
-            className="w-full h-auto"
+            className="w-full h-full"
           >
             <defs>
               <clipPath id="albertaClip">
@@ -2527,14 +2535,12 @@ export default function AlbertaHoneyMap({}: AlbertaHoneyMapProps) {
                     key={region.id}
                     points={points}
                     fill={region.color}
-                    stroke="#000"
+                    stroke="#9ca3af"
                     strokeWidth={isActive ? 4 : 2}
                     className="cursor-pointer transition-all duration-200"
                     onMouseEnter={() => setHoveredRegion(region.id)}
                     onMouseLeave={() => setHoveredRegion(null)}
-                    onClick={() => setSelectedRegion(
-                      selectedRegion === region.id ? null : region.id
-                    )}
+                    onClick={() => setSelectedRegion(region.id)}
                   />
                 );
               })}
@@ -2546,6 +2552,23 @@ export default function AlbertaHoneyMap({}: AlbertaHoneyMapProps) {
               stroke="#000"
               strokeWidth={4}
             />
+            
+            {LOCATIONS.map((loc) => {
+              const [x, y] = projectCoordinate(loc.lon, loc.lat);
+              return (
+                <g key={loc.name}>
+                  <circle cx={x} cy={y} r={4} fill="#000" />
+                  <text 
+                    x={x + 6} 
+                    y={y + 3} 
+                    className="text-[16px] font-black uppercase"
+                    fill="#000"
+                  >
+                    {loc.name}
+                  </text>
+                </g>
+              );
+            })}
           </svg>
         </div>
 
@@ -2568,7 +2591,7 @@ export default function AlbertaHoneyMap({}: AlbertaHoneyMapProps) {
             </div>
           </div>
 
-          {selected ? (
+          {selected && (
             <div className="brutalist-card p-5 bg-bee-yellow">
               <h4 className="text-2xl font-black uppercase mb-2">
                 {selected.name}
@@ -2582,18 +2605,6 @@ export default function AlbertaHoneyMap({}: AlbertaHoneyMapProps) {
                 </p>
                 <p className="font-bold text-sm">tonnes/year</p>
               </div>
-              <button 
-                onClick={() => setSelectedRegion(null)}
-                className="mt-3 px-4 py-2 bg-white border-4 border-black font-black uppercase text-sm hover:bg-bee-yellow shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
-              >
-                Close
-              </button>
-            </div>
-          ) : (
-            <div className="brutalist-card p-4 bg-stone-100">
-              <p className="font-bold text-stone-600 text-center">
-                Select a region from the map to see details
-              </p>
             </div>
           )}
         </div>

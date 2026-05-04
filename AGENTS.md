@@ -86,7 +86,20 @@ The app is a single-page scroll layout. Sections render in this order:
 | `--color-bee-green` | `#10b981` | `bg-bee-green`, `text-bee-green` |
 | `--color-bee-rose` | `#fb7185` | `bg-bee-rose`, `text-bee-rose` |
 
-### Deployment
+### GitHub Credentials
+
+This project uses a GitHub token for deployment. Credentials are stored globally in `~/.git-credentials` and git is configured to use them automatically for all repos.
+
+```bash
+# Check current credentials
+git config --global --list
+
+# For new repos, add remote and push
+git remote add origin https://github.com/curtis-winter/your-repo.git
+git push -u origin master
+```
+
+## Deployment
 
 - GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and deploys to GitHub Pages
 - GitHub Pages `build_type` must be set to `workflow` (not `legacy`/`/docs`)

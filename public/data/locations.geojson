@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PEACE RIVER",
+        "sourceRegionId": null,
+        "sourceRegionName": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.28504322487865,
+          56.2190628261118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "INDUS",
+        "sourceRegionId": null,
+        "sourceRegionName": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.77496458626491,
+          50.91470541120796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "RED DEER",
+        "sourceRegionId": null,
+        "sourceRegionName": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.83664511042765,
+          52.281994783093864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "EDMONTON",
+        "sourceRegionId": null,
+        "sourceRegionName": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.48290514699242,
+          53.54439389541357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "LETHBRIDGE",
+        "sourceRegionId": null,
+        "sourceRegionName": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.85938384045683,
+          49.6929209570043
+        ]
+      }
+    }
+  ]
+}

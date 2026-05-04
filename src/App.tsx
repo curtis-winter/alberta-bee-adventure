@@ -57,10 +57,10 @@ export default function App() {
     { id: 'types', label: 'Bee Team', icon: Users, color: 'bg-orange-400 text-white' },
     { id: 'waggle', label: 'Waggle Dance', icon: Music2, color: 'bg-indigo-400 text-white' },
     { id: 'beeorwasp', label: 'Bee Or Wasp', icon: CircleHelp, color: 'bg-purple-400 text-white' },
+    { id: 'beekeepers', label: 'Keepers', icon: Users, color: 'bg-purple-400 text-white' },
     { id: 'map', label: 'Alberta Stats', icon: Map, color: 'bg-emerald-400 text-white' },
     { id: 'flora', label: 'Flowers', icon: Flower2, color: 'bg-pink-400 text-white' },
     { id: 'seasons', label: 'Seasons', icon: Snowflake, color: 'bg-blue-400 text-white' },
-    { id: 'beekeepers', label: 'Keepers', icon: Users, color: 'bg-purple-400 text-white' },
     { id: 'challenges', label: 'Challenges', icon: Bug, color: 'bg-red-400 text-white' },
     { id: 'winter', label: 'Winter', icon: Snowflake, color: 'bg-blue-600 text-white' },
   ];
@@ -241,7 +241,13 @@ export default function App() {
 
           <section id="beeorwasp" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <BeeOrWasp onNext={() => scrollTo('map')} />
+              <BeeOrWasp onNext={() => scrollTo('beekeepers')} />
+            </ErrorBoundary>
+          </section>
+
+          <section id="beekeepers" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
+            <ErrorBoundary remountKey={remountKey}>
+              <AlbertaBeekeeperProfiles onNext={() => scrollTo('map')} />
             </ErrorBoundary>
           </section>
 
@@ -259,13 +265,7 @@ export default function App() {
 
           <section id="seasons" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <AlbertaSeasons onNext={() => scrollTo('beekeepers')} />
-            </ErrorBoundary>
-          </section>
-
-          <section id="beekeepers" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
-            <ErrorBoundary remountKey={remountKey}>
-              <AlbertaBeekeeperProfiles onNext={() => scrollTo('challenges')} />
+              <AlbertaSeasons onNext={() => scrollTo('challenges')} />
             </ErrorBoundary>
           </section>
 

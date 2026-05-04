@@ -385,7 +385,26 @@ export default function AlbertaHoneyMap({}: AlbertaHoneyMapProps) {
               <rect x="0" y="0" width={SVG_W} height={SVG_H} fill="transparent" />
             </g>
 
-            {/* Region polygons - always show color */}
+            {/* Region polygons - backing layer for overlap */}
+            <g clipPath="url(#albertaClip)">
+              {honeyRegions.map((region) => {
+                const points = region.coords.map(([lon, lat]) => {
+                  const [x, y] = projectCoordinate(lon, lat);
+                  return `${x},${y}`;
+                }).join(' ');
+                return (
+                  <polygon
+                    key={`${region.id}-buffer`}
+                    points={points}
+                    fill="none"
+                    stroke={region.color}
+                    strokeWidth={8}
+                  />
+                );
+              })}
+            </g>
+
+            {/* Region polygons - main layer */}
             <g clipPath="url(#albertaClip)">
               {honeyRegions.map((region) => {
                 const isActive = hoveredRegion === region.id || selectedRegion === region.id;
@@ -400,7 +419,7 @@ export default function AlbertaHoneyMap({}: AlbertaHoneyMapProps) {
                     points={points}
                     fill={region.color}
                     stroke="#000"
-                    strokeWidth={isActive ? 4 : 1.5}
+                    strokeWidth={isActive ? 6 : 3}
                     className="cursor-pointer transition-all duration-200"
                     onMouseEnter={() => setHoveredRegion(region.id)}
                     onMouseLeave={() => setHoveredRegion(null)}

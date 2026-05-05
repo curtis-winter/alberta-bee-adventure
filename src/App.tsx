@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense, JSX } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
 import {
   Bug,
@@ -9,22 +9,41 @@ import {
   Map,
   ArrowUp,
   Music2,
-  CircleHelp
+  Sparkles,
+  UserCheck,
+  Tent,
+  BugOff
 } from 'lucide-react';
-import Home from './components/Home';
-import BeeLifecycle from './components/BeeLifecycle';
-import BeeTypes from './components/BeeTypes';
-import WaggleDance from './components/WaggleDance';
-import BeeOrWasp from './components/BeeOrWasp';
-import AlbertaStats from './components/AlbertaStats';
-import AlbertaSeasons from './components/AlbertaSeasons';
-import AlbertaFlora from './components/AlbertaFlora';
-import AlbertaBeekeeperProfiles from './components/AlbertaBeekeeperProfiles';
-import AlbertaChallengesSolutions from './components/AlbertaChallengesSolutions';
-import AlbertaWinter from './components/AlbertaWinter';
 import ErrorBoundary from './components/ErrorBoundary';
 
+const Home = lazy(() => import('./components/Home'));
+const BeeLifecycle = lazy(() => import('./components/BeeLifecycle'));
+const BeeTypes = lazy(() => import('./components/BeeTypes'));
+const WaggleDance = lazy(() => import('./components/WaggleDance'));
+const BeeOrWasp = lazy(() => import('./components/BeeOrWasp'));
+const AlbertaStats = lazy(() => import('./components/AlbertaStats'));
+const AlbertaSeasons = lazy(() => import('./components/AlbertaSeasons'));
+const AlbertaFlora = lazy(() => import('./components/AlbertaFlora'));
+const AlbertaBeekeeperProfiles = lazy(() => import('./components/AlbertaBeekeeperProfiles'));
+const AlbertaChallengesSolutions = lazy(() => import('./components/AlbertaChallengesSolutions'));
+const AlbertaWinter = lazy(() => import('./components/AlbertaWinter'));
+
 export type Section = 'home' | 'lifecycle' | 'types' | 'waggle' | 'beeorwasp' | 'map' | 'flora' | 'seasons' | 'beekeepers' | 'challenges' | 'winter';
+
+function LoadingFallback() {
+  return (
+    <div className="flex items-center justify-center min-h-[50vh]">
+      <div className="flex flex-col items-center gap-4">
+        <div className="text-6xl animate-bounce">🐝</div>
+        <p className="font-black text-xl uppercase tracking-wider text-stone-600">Loading...</p>
+      </div>
+    </div>
+  );
+}
+
+function LazySection({ children }: { children: React.ReactNode }) {
+  return <Suspense fallback={<LoadingFallback />}>{children}</Suspense>;
+}
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<Section>('home');
@@ -56,12 +75,12 @@ export default function App() {
     { id: 'lifecycle', label: 'Bee Life', icon: Bug, color: 'bg-rose-400 text-white' },
     { id: 'types', label: 'Bee Team', icon: Users, color: 'bg-orange-400 text-white' },
     { id: 'waggle', label: 'Waggle Dance', icon: Music2, color: 'bg-indigo-400 text-white' },
-    { id: 'beeorwasp', label: 'Bee Or Wasp', icon: CircleHelp, color: 'bg-purple-400 text-white' },
-    { id: 'beekeepers', label: 'Keepers', icon: Users, color: 'bg-purple-400 text-white' },
+    { id: 'beeorwasp', label: 'Bee Or Wasp', icon: Sparkles, color: 'bg-purple-400 text-white' },
+    { id: 'beekeepers', label: 'Keepers', icon: UserCheck, color: 'bg-purple-400 text-white' },
     { id: 'map', label: 'Alberta Stats', icon: Map, color: 'bg-emerald-400 text-white' },
     { id: 'flora', label: 'Flowers', icon: Flower2, color: 'bg-pink-400 text-white' },
-    { id: 'seasons', label: 'Seasons', icon: Snowflake, color: 'bg-blue-400 text-white' },
-    { id: 'challenges', label: 'Challenges', icon: Bug, color: 'bg-red-400 text-white' },
+    { id: 'seasons', label: 'Seasons', icon: Tent, color: 'bg-blue-400 text-white' },
+    { id: 'challenges', label: 'Challenges', icon: BugOff, color: 'bg-red-400 text-white' },
     { id: 'winter', label: 'Winter', icon: Snowflake, color: 'bg-blue-600 text-white' },
   ];
 
@@ -190,6 +209,7 @@ export default function App() {
                     <button
                       key={item.id}
                       onClick={() => scrollTo(item.id)}
+                      title={item.label}
                       aria-label={`Navigate to ${item.label} section`}
                       aria-current={activeSection === item.id ? 'true' : undefined}
                       className={`flex items-center gap-2 px-4 py-2 border-4 border-black transition-all text-sm font-black uppercase tracking-tight shrink-0 ${
@@ -215,69 +235,91 @@ export default function App() {
 
         {/* Main Content Area */}
         <main className="pt-32 min-h-screen relative z-10 flex flex-col items-center">
-          <section id="home" className="w-full min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 border-b-8 border-black/5">
+<section id="home" className="w-full min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <Home onStart={() => scrollTo('lifecycle')} />
+              <LazySection>
+                <Home onStart={() => scrollTo('lifecycle')} />
+              </LazySection>
             </ErrorBoundary>
           </section>
           
           <section id="lifecycle" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <BeeLifecycle onNext={() => scrollTo('types')} />
+              <LazySection>
+                <BeeLifecycle onNext={() => scrollTo('types')} />
+              </LazySection>
             </ErrorBoundary>
           </section>
 
-<section id="types" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
+          <section id="types" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <BeeTypes onNext={() => scrollTo('waggle')} />
+              <LazySection>
+                <BeeTypes onNext={() => scrollTo('waggle')} />
+              </LazySection>
             </ErrorBoundary>
           </section>
 
           <section id="waggle" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <WaggleDance onNext={() => scrollTo('beeorwasp')} />
+              <LazySection>
+                <WaggleDance onNext={() => scrollTo('beeorwasp')} />
+              </LazySection>
             </ErrorBoundary>
           </section>
 
           <section id="beeorwasp" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <BeeOrWasp onNext={() => scrollTo('beekeepers')} />
+              <LazySection>
+                <BeeOrWasp onNext={() => scrollTo('beekeepers')} />
+              </LazySection>
             </ErrorBoundary>
           </section>
 
           <section id="beekeepers" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <AlbertaBeekeeperProfiles onNext={() => scrollTo('map')} />
+              <LazySection>
+                <AlbertaBeekeeperProfiles onNext={() => scrollTo('map')} />
+              </LazySection>
             </ErrorBoundary>
           </section>
 
           <section id="map" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <AlbertaStats onNext={() => scrollTo('flora')} />
+              <LazySection>
+                <AlbertaStats onNext={() => scrollTo('flora')} />
+              </LazySection>
             </ErrorBoundary>
           </section>
 
           <section id="flora" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <AlbertaFlora onNext={() => scrollTo('seasons')} />
+              <LazySection>
+                <AlbertaFlora onNext={() => scrollTo('seasons')} />
+              </LazySection>
             </ErrorBoundary>
           </section>
 
           <section id="seasons" className="w-full min-h-screen flex items-center justify-center py-24 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <AlbertaSeasons onNext={() => scrollTo('challenges')} />
+              <LazySection>
+                <AlbertaSeasons onNext={() => scrollTo('challenges')} />
+              </LazySection>
             </ErrorBoundary>
           </section>
 
           <section id="challenges" className="w-full min-h-screen flex items-center justify-center py-24 bg-white/50 border-b-8 border-black/5">
             <ErrorBoundary remountKey={remountKey}>
-              <AlbertaChallengesSolutions onNext={() => scrollTo('winter')} />
+              <LazySection>
+                <AlbertaChallengesSolutions onNext={() => scrollTo('winter')} />
+              </LazySection>
             </ErrorBoundary>
           </section>
 
-<section id="winter" className="w-full min-h-screen flex items-center justify-center py-24">
+          <section id="winter" className="w-full min-h-screen flex items-center justify-center py-24">
             <ErrorBoundary remountKey={remountKey}>
-              <AlbertaWinter onNext={handleReset} />
+              <LazySection>
+                <AlbertaWinter onNext={handleReset} />
+              </LazySection>
             </ErrorBoundary>
           </section>
         </main>

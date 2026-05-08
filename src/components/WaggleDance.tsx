@@ -63,15 +63,23 @@ className="brutalist-card p-6 bg-white"
 <div className="bg-yellow-50 border-4 border-black rounded-xl p-6">
 <h4 className="font-black uppercase mb-4">The Figure-8 Pattern</h4>
 <svg viewBox="0 0 200 200" className="w-full h-48">
+{/* Figure-8 waggle dance path */}
 <path
-d="M 100 50 C 150 50 150 100 100 100 C 50 100 50 50 100 50 C 150 50 150 150 100 150 C 50 150 50 50 100 50"
+d="M 100 40 
+   C 130 40 130 80 100 80 
+   C 70 80 70 40 100 40
+   C 130 40 130 160 100 160
+   C 70 160 70 40 100 40"
 fill="none"
 stroke="#fbbf24"
-strokeWidth="8"
-strokeDasharray="12 8"
+strokeWidth="6"
+strokeDasharray="8 6"
+strokeLinecap="round"
 />
+{/* Sun direction indicator */}
 <circle cx="180" cy="20" r="15" fill="#fbbf24" stroke="black" strokeWidth="3" />
 <text x="180" y="25" textAnchor="middle" className="text-xs font-black">☀️</text>
+{/* Bee at center */}
 <circle cx="100" cy="100" r="12" fill="black" />
 <text x="100" y="105" textAnchor="middle" className="text-xs">🐝</text>
 </svg>

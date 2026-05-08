@@ -63,21 +63,20 @@ className="brutalist-card p-6 bg-white"
 <div className="bg-yellow-50 border-4 border-black rounded-xl p-6">
 <h4 className="font-black uppercase mb-4">The Figure-8 Pattern</h4>
 <svg viewBox="0 0 200 200" className="w-full h-48">
-{/* Top loop of figure-8 */}
-<ellipse cx="100" cy="70" rx="25" ry="25" 
-  fill="none" 
-  stroke="#fbbf24" 
-  strokeWidth="6" 
+{/* Figure-8 pattern - single continuous path */}
+<path
+d="M 100 100 
+   L 82 82
+   A 25 25 0 1 1 118 82
+   L 100 100
+   L 118 118
+   A 25 25 0 1 1 82 118
+   L 100 100"
+  fill="none"
+  stroke="#fbbf24"
+  strokeWidth="6"
   strokeDasharray="10 6"
-  transform="rotate(-45 100 70)"
-/>
-{/* Bottom loop of figure-8 */}
-<ellipse cx="100" cy="130" rx="25" ry="25" 
-  fill="none" 
-  stroke="#fbbf24" 
-  strokeWidth="6" 
-  strokeDasharray="10 6"
-  transform="rotate(45 100 130)"
+  strokeLinecap="round"
 />
 {/* Sun direction indicator */}
 <circle cx="180" cy="20" r="15" fill="#fbbf24" stroke="black" strokeWidth="3" />

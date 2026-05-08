@@ -63,17 +63,21 @@ className="brutalist-card p-6 bg-white"
 <div className="bg-yellow-50 border-4 border-black rounded-xl p-6">
 <h4 className="font-black uppercase mb-4">The Figure-8 Pattern</h4>
 <svg viewBox="0 0 200 200" className="w-full h-48">
-{/* Figure-8 waggle dance path */}
+{/* Figure-8 waggle dance pattern - two elliptical loops */}
 <path
-d="M 100 40 
-   C 130 40 130 80 100 80 
-   C 70 80 70 40 100 40
-   C 130 40 130 160 100 160
-   C 70 160 70 40 100 40"
+d="M 100 100
+   L 100 60
+   C 130 60 130 100 100 100
+   C 70 100 70 60 100 60
+   L 100 100
+   L 100 140
+   C 130 140 130 100 100 100
+   C 70 100 70 140 100 140
+   L 100 100"
 fill="none"
 stroke="#fbbf24"
 strokeWidth="6"
-strokeDasharray="8 6"
+strokeDasharray="10 6"
 strokeLinecap="round"
 />
 {/* Sun direction indicator */}

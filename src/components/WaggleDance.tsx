@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
-import { ChevronRight, Play } from 'lucide-react';
-import { useState } from 'react';
+import { ChevronRight } from 'lucide-react';
 
 interface WaggleDanceProps {
 onNext: () => void;
@@ -16,7 +15,6 @@ const waggleDanceSteps = [
 ];
 
 export default function WaggleDance({ onNext }: WaggleDanceProps) {
-const [showVideo, setShowVideo] = useState(false);
 
 return (
 <div className="max-w-6xl mx-auto px-6 py-16">
@@ -100,33 +98,21 @@ If the bee waggles <strong>DOWN</strong>, the food is <strong>AWAY</strong> from
 </div>
 </div>
 
-{/* Video toggle */}
+{/* Video section */}
 <div className="mt-6">
-{showVideo ? (
 <div className="relative w-full max-w-2xl mx-auto border-4 border-black rounded-2xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-black">
-<iframe
-className="w-full aspect-video"
-src="https://www.youtube.com/embed/12Q8FfyLLso?start=41&end=142&rel=0"
-title="Waggle Dance Video"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowFullScreen
-/>
-</div>
-) : (
-<button
-onClick={() => setShowVideo(true)}
-className="w-full max-w-md mx-auto bg-black text-white font-black uppercase tracking-tighter px-8 py-4 rounded-2xl shadow-[6px_6px_0px_0px_rgba(251,191,36,1)] inline-flex items-center justify-center gap-3 hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+<video
+className="w-full"
+controls
+controlsList="playbackrate"
 >
-<Play className="w-6 h-6 fill-yellow-400" />
-Watch Video (YouTube)
-</button>
-)
-}
-{showVideo && (
+<source src="./videos/The%20Waggle%20Dance%20_%20Inside%20the%20Animal%20Mind%20_%20BBC.mp4" type="video/mp4" />
+Your browser does not support the video tag.
+</video>
+</div>
 <p className="text-center text-sm font-bold text-stone-600 mt-3">
-Waggle dance video (41s - 2:22) - <span className="text-rose-500">Requires internet</span>
+Waggle dance video (41s - 2:22) - Works offline!
 </p>
-)}
 </div>
 </div>
 </div>

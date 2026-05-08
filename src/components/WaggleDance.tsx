@@ -24,6 +24,8 @@ videoRef.current.currentTime = 41;
 }
 }, []);
 
+const figure8Path = "M 100 100 L 82 82 A 25 25 0 1 1 118 82 L 100 100 L 118 118 A 25 25 0 1 1 82 118 L 100 100";
+
 return (
 <div className="max-w-6xl mx-auto px-6 py-16">
 <div className="text-center mb-12">
@@ -65,13 +67,7 @@ className="brutalist-card p-6 bg-white"
 <svg viewBox="0 0 200 200" className="w-full h-48">
 {/* Figure-8 pattern - single continuous path */}
 <path
-d="M 100 100 
-   L 82 82
-   A 25 25 0 1 1 118 82
-   L 100 100
-   L 118 118
-   A 25 25 0 1 1 82 118
-   L 100 100"
+d={figure8Path}
   fill="none"
   stroke="#fbbf24"
   strokeWidth="6"
@@ -81,9 +77,15 @@ d="M 100 100
 {/* Sun direction indicator */}
 <circle cx="180" cy="20" r="15" fill="#fbbf24" stroke="black" strokeWidth="3" />
 <text x="180" y="25" textAnchor="middle" className="text-xs font-black">☀️</text>
-{/* Bee at center */}
-<circle cx="100" cy="100" r="12" fill="black" />
-<text x="100" y="105" textAnchor="middle" className="text-xs">🐝</text>
+{/* Animated bee emoji following the path */}
+<text fontSize="24" textAnchor="middle" dominantBaseline="middle">
+🐝
+<animateMotion
+  dur="4s"
+  repeatCount="indefinite"
+  path={figure8Path}
+/>
+</text>
 </svg>
 <p className="text-sm font-bold mt-4 text-center">
 The bee dances in a figure-8 pattern. The straight part points toward the food source!

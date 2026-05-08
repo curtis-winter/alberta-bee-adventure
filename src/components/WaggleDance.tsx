@@ -56,20 +56,19 @@ className="brutalist-card p-6 bg-white"
 </div>
 
 {/* Interactive Waggle Dance Diagram */}
-<div className="bg-white border-4 border-black rounded-2xl p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-12">
+<div className="mb-12">
 <h3 className="text-2xl font-black uppercase tracking-tighter mb-6 text-center">How the Waggle Dance Works</h3>
-<div className="grid md:grid-cols-2 gap-6">
+<div className="grid md:grid-cols-2 gap-6 mb-8">
 {/* Figure-8 Pattern Diagram */}
 <div className="bg-yellow-50 border-4 border-black rounded-xl p-6">
 <h4 className="font-black uppercase mb-4">The Figure-8 Pattern</h4>
-<svg viewBox="0 0 200 200" className="w-full h-full">
+<svg viewBox="0 0 200 200" className="w-full h-48">
 <path
 d="M 100 50 C 150 50 150 100 100 100 C 50 100 50 50 100 50 C 150 50 150 150 100 150 C 50 150 50 50 100 50"
 fill="none"
 stroke="#fbbf24"
 strokeWidth="8"
 strokeDasharray="12 8"
-className="animate-pulse"
 />
 <circle cx="180" cy="20" r="15" fill="#fbbf24" stroke="black" strokeWidth="3" />
 <text x="180" y="25" textAnchor="middle" className="text-xs font-black">☀️</text>
@@ -103,8 +102,7 @@ If the bee waggles <strong>DOWN</strong>, the food is <strong>AWAY</strong> from
 </div>
 
 {/* Video section */}
-<div className="mt-8">
-<div className="relative w-full max-w-2xl mx-auto">
+<div className="w-full max-w-2xl mx-auto">
 <div className="aspect-video border-4 border-black rounded-2xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-black">
 <video
 ref={videoRef}
@@ -115,7 +113,6 @@ controlsList="playbackrate"
 <source src="./videos/The%20Waggle%20Dance%20_%20Inside%20the%20Animal%20Mind%20_%20BBC.mp4" type="video/mp4" />
 Your browser does not support the video tag.
 </video>
-</div>
 </div>
 <p className="text-center text-sm font-bold text-stone-600 mt-3">
 Waggle dance video (starts at 41s) - Works offline!

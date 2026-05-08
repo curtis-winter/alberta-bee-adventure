@@ -15,6 +15,7 @@ import {
   BugOff
 } from 'lucide-react';
 import ErrorBoundary from './components/ErrorBoundary';
+import OfflineNotice from './components/OfflineNotice';
 
 const Home = lazy(() => import('./components/Home'));
 const BeeLifecycle = lazy(() => import('./components/BeeLifecycle'));
@@ -324,18 +325,21 @@ export default function App() {
           </section>
         </main>
 
-        {/* Scroll to top button */}
-        {showScrollTop && (
-          <button
-            onClick={handleReset}
-            aria-label="Scroll to top"
-            className="fixed left-4 top-1/2 -translate-y-1/2 z-[70] w-12 h-12 bg-black border-4 border-white rounded-full flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:bg-stone-800 transition-colors"
-          >
-            <ArrowUp className="w-6 h-6 text-yellow-400" strokeWidth={3} />
-          </button>
-        )}
-    </div>
-  );
+{/* Scroll to top button */}
+{showScrollTop && (
+<button
+onClick={handleReset}
+aria-label="Scroll to top"
+className="fixed left-4 top-1/2 -translate-y-1/2 z-[70] w-12 h-12 bg-black border-4 border-white rounded-full flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:bg-stone-800 transition-colors"
+>
+<ArrowUp className="w-6 h-6 text-yellow-400" strokeWidth={3} />
+</button>
+)}
+
+{/* Offline notice */}
+<OfflineNotice />
+</div>
+);
 }
 
 

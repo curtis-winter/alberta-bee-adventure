@@ -40,18 +40,16 @@ Absolute paths (starting with `/`) resolve to the domain root, skipping the `/al
 - Every section is wrapped in `<ErrorBoundary>` with a `remountKey` for state reset
 
 ### Section Flow
-
 The app is a single-page scroll layout. Sections render in this order:
-
 1. `Home` — welcome/start screen
 2. `BeeLifecycle` — egg → larva → pupa → worker
 3. `BeeTypes` — queen, workers, drone
 4. `WaggleDance` — communication dance with YouTube embed
 5. `BeeOrWasp` — comparison table (bee vs wasp)
-6. `AlbertaStats` — Alberta beekeeping facts
-7. `AlbertaFlora` — flowers bees pollinate
-8. `AlbertaSeasons` — beekeeping through the year
-9. `AlbertaBeekeeperProfiles` — fictional keeper profiles
+6. `AlbertaBeekeeperProfiles` — fictional keeper profiles
+7. `AlbertaStats` — Alberta beekeeping facts with honey map
+8. `AlbertaFlora` — flowers bees pollinate
+9. `AlbertaSeasons` — beekeeping through the year
 10. `AlbertaChallengesSolutions` — threats and solutions
 11. `AlbertaWinter` — winter survival (final section, `onNext` resets to home)
 

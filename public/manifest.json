@@ -1,9 +1,18 @@
 {
-  "name": "Alberta Bee Adventure",
-  "short_name": "Alberta Bees",
-  "description": "Learn about beekeeping in Alberta, Canada",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#f0f9ff",
-  "theme_color": "#fbbf24"
+"name": "Alberta Bee Adventure",
+"short_name": "Alberta Bees",
+"description": "Learn about beekeeping in Alberta, Canada - from bee lifecycles to seasonal challenges",
+"start_url": "./",
+"display": "standalone",
+"background_color": "#f0f9ff",
+"theme_color": "#fbbf24",
+"orientation": "portrait",
+"icons": [
+{
+"src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐝</text></svg>",
+"sizes": "any",
+"type": "image/svg+xml",
+"purpose": "any"
+}
+]
 }

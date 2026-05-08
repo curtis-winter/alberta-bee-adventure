@@ -160,11 +160,11 @@ export default function AlbertaBeekeeperProfiles({ onNext }: AlbertaBeekeeperPro
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={onNext}
-          className="bg-black text-white font-black uppercase tracking-tighter px-12 py-5 rounded-2xl inline-flex items-center gap-3 shadow-[8px_8px_0px_0px_rgba(16,185,129,1)] transition-all"
-        >
-          Face Winter Challenges!
-          <ChevronRight strokeWidth={4} className="w-6 h-6" />
-        </motion.button>
+        className="bg-black text-white font-black uppercase tracking-tighter px-12 py-5 rounded-2xl inline-flex items-center gap-3 shadow-[8px_8px_0px_0px_rgba(16,185,129,1)] transition-all"
+      >
+        Explore Alberta Stats!
+        <ChevronRight strokeWidth={4} className="w-6 h-6" />
+      </motion.button>
       </div>
     </div>
   );

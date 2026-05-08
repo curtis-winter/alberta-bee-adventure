@@ -4,7 +4,19 @@
 
 # Alberta Bee Adventure
 
-An interactive educational web application for children in grades 1-6 to learn about beekeeping in Alberta, Canada. Fully offline with no external API dependencies.
+An interactive educational web application for children in grades 1-6 to learn about beekeeping in Alberta, Canada. **Fully offline-capable PWA** with no external API dependencies.
+
+## 📱 Offline Capabilities
+
+This app is a **Progressive Web App (PWA)** that works completely offline:
+
+- ✅ All images, styles, and code cached for offline use
+- ✅ No external dependencies (works without internet)
+- ✅ Installable on mobile/desktop devices
+- ✅ Automatic updates when online
+- ⚠️ YouTube video in Waggle Dance section requires internet (optional feature)
+
+**To install:** Visit the app, wait for "Ready for Offline Use" notification, then use your browser's "Add to Home Screen" feature.
 
 ## Run Locally
 

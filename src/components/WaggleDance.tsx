@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
+import { useRef, useEffect } from 'react';
 
 interface WaggleDanceProps {
 onNext: () => void;
@@ -15,6 +16,13 @@ const waggleDanceSteps = [
 ];
 
 export default function WaggleDance({ onNext }: WaggleDanceProps) {
+const videoRef = useRef<HTMLVideoElement>(null);
+
+useEffect(() => {
+if (videoRef.current) {
+videoRef.current.currentTime = 41;
+}
+}, []);
 
 return (
 <div className="max-w-6xl mx-auto px-6 py-16">
@@ -99,10 +107,11 @@ If the bee waggles <strong>DOWN</strong>, the food is <strong>AWAY</strong> from
 </div>
 
 {/* Video section */}
-<div className="mt-6">
+<div className="mt-8">
 <div className="relative w-full max-w-2xl mx-auto border-4 border-black rounded-2xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-black">
 <video
-className="w-full"
+ref={videoRef}
+className="w-full aspect-video"
 controls
 controlsList="playbackrate"
 >
@@ -111,32 +120,32 @@ Your browser does not support the video tag.
 </video>
 </div>
 <p className="text-center text-sm font-bold text-stone-600 mt-3">
-Waggle dance video (41s - 2:22) - Works offline!
+Waggle dance video (starts at 41s) - Works offline!
 </p>
 </div>
 </div>
 </div>
 
-      <div className="bg-sky-100 border-4 border-black rounded-3xl p-8 mb-12">
-        <h4 className="text-2xl font-black uppercase tracking-tighter mb-4">🎓 Science Connection!</h4>
-        <p className="text-lg font-bold text-stone-700">
-          The Waggle Dance is an example of <span className="bg-white px-2 py-1 rounded">animal communication</span> - 
-          one of the most complex forms of communication in the animal kingdom! 
-          Bees use the sun's position as a compass, and they can even adjust their dance if the sun moves!
-        </p>
-      </div>
+<div className="bg-sky-100 border-4 border-black rounded-3xl p-8 mb-12">
+<h4 className="text-2xl font-black uppercase tracking-tighter mb-4">🎓 Science Connection!</h4>
+<p className="text-lg font-bold text-stone-700">
+The Waggle Dance is an example of <span className="bg-white px-2 py-1 rounded">animal communication</span> -
+one of the most complex forms of communication in the animal kingdom!
+Bees use the sun's position as a compass, and they can even adjust their dance if the sun moves!
+</p>
+</div>
 
-      <div className="mt-16 flex justify-center">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={onNext}
-          className="bg-black text-white font-black uppercase tracking-tighter px-12 py-5 rounded-2xl inline-flex items-center gap-3 shadow-[8px_8px_0px_0px_rgba(251,191,36,1)] transition-all"
-        >
-          Bee Or Wasp?
-          <ChevronRight strokeWidth={4} className="w-6 h-6" />
-        </motion.button>
-      </div>
-    </div>
-  );
+<div className="mt-16 flex justify-center">
+<motion.button
+whileHover={{ scale: 1.05 }}
+whileTap={{ scale: 0.95 }}
+onClick={onNext}
+className="bg-black text-white font-black uppercase tracking-tighter px-12 py-5 rounded-2xl inline-flex items-center gap-3 shadow-[8px_8px_0px_0px_rgba(251,191,36,1)] transition-all"
+>
+Bee Or Wasp?
+<ChevronRight strokeWidth={4} className="w-6 h-6" />
+</motion.button>
+</div>
+</div>
+);
 }

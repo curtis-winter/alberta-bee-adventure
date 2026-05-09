@@ -24,7 +24,7 @@ videoRef.current.currentTime = 41;
 }
 }, []);
 
-const figure8Path = "M 100 100 L 82 82 A 25 25 0 1 1 118 82 L 100 100 L 118 118 A 25 25 0 1 1 82 118 L 100 100";
+const figure8Path = "M 100 100 L 80 80 A 28 28 0 1 1 120 80 L 100 100 L 120 120 A 28 28 0 1 1 80 120 L 100 100";
 
 return (
 <div className="max-w-6xl mx-auto px-6 py-16">
@@ -65,9 +65,10 @@ className="brutalist-card p-6 bg-white"
 <div className="bg-yellow-50 border-4 border-black rounded-xl p-6">
 <h4 className="font-black uppercase mb-4">The Figure-8 Pattern</h4>
 <svg viewBox="0 0 200 200" className="w-full h-48">
-{/* Figure-8 pattern - single continuous path */}
+{/* Figure-8 pattern - single continuous path through center */}
 <path
-d={figure8Path}
+  id="figure8"
+  d={figure8Path}
   fill="none"
   stroke="#fbbf24"
   strokeWidth="6"
@@ -78,12 +79,13 @@ d={figure8Path}
 <circle cx="180" cy="20" r="15" fill="#fbbf24" stroke="black" strokeWidth="3" />
 <text x="180" y="25" textAnchor="middle" className="text-xs font-black">☀️</text>
 {/* Animated bee emoji following the path */}
-<text fontSize="24" textAnchor="middle" dominantBaseline="middle">
+<text fontSize="20" textAnchor="middle" dominantBaseline="middle">
 🐝
 <animateMotion
-  dur="4s"
+  dur="3s"
   repeatCount="indefinite"
   path={figure8Path}
+  rotate="auto"
 />
 </text>
 </svg>

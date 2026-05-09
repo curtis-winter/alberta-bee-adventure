@@ -24,7 +24,7 @@ videoRef.current.currentTime = 41;
 }
 }, []);
 
-const figure8Path = "M 100 100 L 80 80 A 28 28 0 1 1 120 80 L 100 100 L 120 120 A 28 28 0 1 1 80 120 L 100 100";
+const figure8Path = "M 100 100 L 75 75 A 30 30 0 1 1 125 75 L 100 100 L 125 125 A 30 30 0 1 1 75 125 L 100 100";
 
 return (
 <div className="max-w-6xl mx-auto px-6 py-16">
@@ -79,15 +79,17 @@ className="brutalist-card p-6 bg-white"
 <circle cx="180" cy="20" r="15" fill="#fbbf24" stroke="black" strokeWidth="3" />
 <text x="180" y="25" textAnchor="middle" className="text-xs font-black">☀️</text>
 {/* Animated bee emoji following the path */}
-<text fontSize="20" textAnchor="middle" dominantBaseline="middle">
+<g>
+<text fontSize="20" textAnchor="middle" dominantBaseline="middle" transform="scale(-1, 1)">
 🐝
 <animateMotion
   dur="3s"
   repeatCount="indefinite"
   path={figure8Path}
-  rotate="auto"
+  rotate="auto-reverse"
 />
 </text>
+</g>
 </svg>
 <p className="text-sm font-bold mt-4 text-center">
 The bee dances in a figure-8 pattern. The straight part points toward the food source!
